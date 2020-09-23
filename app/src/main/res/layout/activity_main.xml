@@ -9,6 +9,8 @@
     tools:context=".MainActivity"
     >
 
+    <include layout="@layout/toolbar"
+        android:id="@+id/myToolbar"/>
 
     <FrameLayout
         android:layout_width="match_parent"
