@@ -17,22 +17,31 @@
         android:background="@color/colorSecondary"
         android:clipToPadding="false">
 
-        <View
-            android:id="@+id/indicator"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:background="@drawable/gradient_bg"/>
-
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:background="@drawable/tab_bg"
             app:tabGravity="fill"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="#ffffff"
+            app:tabSelectedTextColor="#000000"
             app:tabIndicatorColor="@null"
             app:tabRippleColor="@null"/>
+
+        <View
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/gradient_bg" />
+
+        <TextView
+            android:id="@+id/tvIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:text="TextView" />
+
 
     </FrameLayout>
 

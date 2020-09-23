@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -13,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout myTabs;
     private View myIndicator;
     private ViewPager myViewPager;
+    private TextView myTitulo;
 
     private int indicatorWidth;
 
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         //Assign view reference (slider)
         myTabs = findViewById(R.id.tab);
         myIndicator = findViewById(R.id.indicator);
+        myTitulo = findViewById(R.id.tvIndicator);
         myViewPager = findViewById(R.id.viewPager);
 
         //Set up the view pager and fragments
@@ -60,6 +64,14 @@ public class MainActivity extends AppCompatActivity {
                 float translationOffset =  (positionOffset + position) * indicatorWidth ;
                 params.leftMargin = (int) translationOffset;
                 myIndicator.setLayoutParams(params);
+                myTitulo.setLayoutParams(params);
+                myTitulo.setText(String.valueOf(translationOffset));
+                if(translationOffset < 240){
+                    myTitulo.setText("Ejercicios");
+                } else{
+                    myTitulo.setText("Mis Planes");
+                }
+
             }
 
             @Override
