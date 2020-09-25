@@ -13,7 +13,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rvListaEjercicios"/>
+        android:id="@+id/rvListaPlanes"/>
 
     <Button
         android:id="@+id/btnAgregarPlan"
