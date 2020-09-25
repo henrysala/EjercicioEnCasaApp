@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout myTabs;
     private View myIndicator;
     private ViewPager myViewPager;
+    private ViewPagerAdapter adapter;
 
     private int indicatorWidth;
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         myViewPager = findViewById(R.id.viewPager);
 
         //Set up the view pager and fragments
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(EjerciciosFragment.newInstance(), "Ejercicios");
         adapter.addFragment(MisPlanesFragment.newInstance(), "Mis Planes");
         myViewPager.setAdapter(adapter);
