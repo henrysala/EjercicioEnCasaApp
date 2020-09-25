@@ -1,9 +1,10 @@
 package com.example.ejercicioencasaapp;
 
 public final class UtilitiesDataBase {
-    static final String DATABASE_NAME="ejercicios";
+    static final String DATABASE_NAME="rutinas";
     static final int VERSION=1;
 
+    /*
     public class TablaEjercicios{
         static final String TABLE_NAME="ejercicios";
         static final String ID="id";
@@ -15,6 +16,7 @@ public final class UtilitiesDataBase {
 
         static final String CONSULTAR_ALL_TABLE="SELECT * FROM "+TABLE_NAME;
     }
+    */
     //la tabla TablaRutinas es la que agrupara las rutinas de ejercicios del modulo Ejercicios
     public class TablaRutinas{
         static final String TABLE_NAME="rutinas";

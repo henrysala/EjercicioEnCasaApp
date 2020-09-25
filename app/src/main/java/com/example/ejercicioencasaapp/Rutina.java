@@ -4,7 +4,7 @@ public class Rutina {
     private int id, cantidad, duracion;
     private String nombre;
 
-    public Rutina(int id, int cantidad, int duracion, String nombre) {
+    public Rutina(int id, String nombre, int cantidad, int duracion) {
         this.id = id;
         this.cantidad = cantidad;
         this.duracion = duracion;
