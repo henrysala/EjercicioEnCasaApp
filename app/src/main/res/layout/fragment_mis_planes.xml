@@ -9,12 +9,20 @@
     tools:context=".MisPlanesFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="30sp"
-        android:textColor="@color/colorText"
-        android:text="@string/mis_planes" />
+        android:id="@+id/rvListaEjercicios"/>
+
+    <Button
+        android:id="@+id/btnAgregarPlan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorSecondary"
+        android:text="@string/agregarPlan" />
 
 </RelativeLayout>
