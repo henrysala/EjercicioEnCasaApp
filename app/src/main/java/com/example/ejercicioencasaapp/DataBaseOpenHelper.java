@@ -15,7 +15,7 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        /*
+
         //Se crea la tabla de ejercicios
         sqLiteDatabase.execSQL(UtilitiesDataBase.TablaEjercicios.CREATE_TABLE_EJERCICIOS);
         //se agregan los ejercicios a la tabla
@@ -29,7 +29,7 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         insertEjercicio(sqLiteDatabase, 7,"Sentadillas", 60000);
         insertEjercicio(sqLiteDatabase, 8,"Sentadilla de tijera", 60000);
         insertEjercicio(sqLiteDatabase, 9,"Elevacion de pantorrilla", 60000);
-        */
+
         //Se crea la tabla de rutinas
         sqLiteDatabase.execSQL(UtilitiesDataBase.TablaRutinas.CREATE_TABLE_RUTINAS);
         //Se agregan las rutinas a la tabla
@@ -39,7 +39,7 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    /*
+
     private void insertEjercicio(SQLiteDatabase sqLiteDatabase, int id, String nombre, int duracion){
         ContentValues registro = new ContentValues();
         registro.put(UtilitiesDataBase.TablaEjercicios.ID,id);
@@ -48,7 +48,7 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
 
         sqLiteDatabase.insert(UtilitiesDataBase.TablaEjercicios.TABLE_NAME,null, registro);
     }
-    */
+
     private void insertRutina(SQLiteDatabase sqLiteDatabase, int id, String nombre, int cantidad, int duracion){
         ContentValues registro = new ContentValues();
         registro.put(UtilitiesDataBase.TablaRutinas.ID,id);

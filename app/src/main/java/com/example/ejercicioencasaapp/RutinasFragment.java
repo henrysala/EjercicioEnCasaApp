@@ -9,22 +9,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import java.util.ArrayList;
 
 
-public class EjerciciosFragment extends Fragment {
+public class RutinasFragment extends Fragment {
     private RecyclerView recyclerViewRutina;
 
 
-    public EjerciciosFragment() {
+    public RutinasFragment() {
         // Required empty public constructor
     }
 
-    public static EjerciciosFragment newInstance() {
+    public static RutinasFragment newInstance() {
 
-        return new EjerciciosFragment();
+        return new RutinasFragment();
     }
 
 
@@ -32,7 +31,7 @@ public class EjerciciosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ejercicios, container, false);
+        return inflater.inflate(R.layout.fragment_rutinas, container, false);
     }
 
     @Override
