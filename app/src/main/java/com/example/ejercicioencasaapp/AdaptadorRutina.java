@@ -3,6 +3,7 @@ package com.example.ejercicioencasaapp;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,6 +36,7 @@ public class AdaptadorRutina extends RecyclerView.Adapter<AdaptadorRutina.ViewHo
         holder.nombre.setText(rutina.getNombre());
         holder.cantidad.setText(String.valueOf(rutina.getCantidad()));
         holder.duracion.setText(String.valueOf(rutina.getDuracion()));
+        holder.back_img.setImageResource(R.drawable.cardio_rutina);
     }
 
     @Override
@@ -43,12 +45,14 @@ public class AdaptadorRutina extends RecyclerView.Adapter<AdaptadorRutina.ViewHo
     }
 
     public static class ViewHolderRutina extends RecyclerView.ViewHolder{
+        private ImageView back_img;
         private TextView nombre, cantidad, duracion;
         public ViewHolderRutina(View view, final RutinasFragment rutinasFragment){
             super(view);
             nombre = (TextView)view.findViewById(R.id.tvNombreRutina);
             cantidad = (TextView)view.findViewById(R.id.tvCantidadEjercicios);
             duracion = (TextView)view.findViewById(R.id.tvDuracionRutina);
+            back_img = (ImageView)view.findViewById(R.id.imageCard);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
