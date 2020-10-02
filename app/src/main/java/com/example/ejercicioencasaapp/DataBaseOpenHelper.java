@@ -37,26 +37,41 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         insertRutina(sqLiteDatabase,1,"Tonificar tren superior", 4, 24);
         insertRutina(sqLiteDatabase,2,"Tonificar tren inferior", 3, 18);
 
+
+        sqLiteDatabase.execSQL(UtilitiesDataBase.TablaEjerciciosRutina.CREATE_TABLE_EJERCICIOS_RUTINA);
+        //ejercicios que pertenecen a una rutina
+        insertEjerciciosRutina(sqLiteDatabase,00, 0,0);
+        insertEjerciciosRutina(sqLiteDatabase,01, 0,1);
+        insertEjerciciosRutina(sqLiteDatabase,02, 0,2);
+
     }
 
 
-    private void insertEjercicio(SQLiteDatabase sqLiteDatabase, int id, String nombre, int duracion){
+    private void insertEjercicio(SQLiteDatabase sqLiteDatabase, int idEjercicio, String nombre, int duracion){
         ContentValues registro = new ContentValues();
-        registro.put(UtilitiesDataBase.TablaEjercicios.ID,id);
+        registro.put(UtilitiesDataBase.TablaEjercicios.ID_EJERCICIO,idEjercicio);
         registro.put(UtilitiesDataBase.TablaEjercicios.NAME,nombre);
         registro.put(UtilitiesDataBase.TablaEjercicios.DURATION,duracion);
 
         sqLiteDatabase.insert(UtilitiesDataBase.TablaEjercicios.TABLE_NAME,null, registro);
     }
 
-    private void insertRutina(SQLiteDatabase sqLiteDatabase, int id, String nombre, int cantidad, int duracion){
+    private void insertRutina(SQLiteDatabase sqLiteDatabase, int idRutina, String nombre, int cantidad, int duracion){
         ContentValues registro = new ContentValues();
-        registro.put(UtilitiesDataBase.TablaRutinas.ID,id);
+        registro.put(UtilitiesDataBase.TablaRutinas.ID_RUTINA,idRutina);
         registro.put(UtilitiesDataBase.TablaRutinas.NAME,nombre);
         registro.put(UtilitiesDataBase.TablaRutinas.QUANTITY,cantidad);
         registro.put(UtilitiesDataBase.TablaRutinas.DURATION,duracion);
 
         sqLiteDatabase.insert(UtilitiesDataBase.TablaRutinas.TABLE_NAME,null, registro);
+    }
+
+    private void insertEjerciciosRutina(SQLiteDatabase sqLiteDatabase, int idEjercicioRutina, int idRutina, int idEjercicio){
+        ContentValues registro = new ContentValues();
+        registro.put(UtilitiesDataBase.TablaEjerciciosRutina.ID_EJERCICIO_RUTINA,idEjercicioRutina);
+        registro.put(UtilitiesDataBase.TablaEjerciciosRutina.ID_RUTINA,idRutina);
+        registro.put(UtilitiesDataBase.TablaEjerciciosRutina.ID_EJERCICIO,idEjercicio);
+
     }
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
