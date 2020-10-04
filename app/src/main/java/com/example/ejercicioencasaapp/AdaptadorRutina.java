@@ -48,6 +48,7 @@ public class AdaptadorRutina extends RecyclerView.Adapter<AdaptadorRutina.ViewHo
                 Intent intent = new Intent(view.getContext(),EjerciciosRutinaActivity.class);
                 //intent.putExtra(EjerciciosRutinaActivity.RUTINA,rutina.getNombre());
                 intent.putExtra(EjerciciosRutinaActivity.EXTRA_EJERCICIO,rutina.getNombre());
+                intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_ID,rutina.getId());
                 view.getContext().startActivity(intent);
             }
         });

@@ -12,9 +12,11 @@ import java.util.ArrayList;
 
 public class EjerciciosRutinaActivity extends AppCompatActivity {
     public static final String EXTRA_EJERCICIO = "rutinaNombre";
+    public static final String EXTRA_RUTINA_ID = "id_rutina";
     private RecyclerView recyclerViewEjerciciosRutina;
     private String nombreRutina;
-    private TextView textView;
+    private int idRutina;
+    private TextView tvNombre;
 
 
     @Override
@@ -23,11 +25,14 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ejercicios_rutina);
 
         Intent intent = getIntent();
-        //nombreRutina = intent.getIntExtra(EXTRA_EJERCICIO,0);
-        nombreRutina = intent.getStringExtra(EXTRA_EJERCICIO);
-        textView = (TextView)findViewById(R.id.tvRutinaNombre);
 
-        textView.setText(String.valueOf(nombreRutina));
+        nombreRutina = intent.getStringExtra(EXTRA_EJERCICIO);
+        idRutina = intent.getIntExtra(EXTRA_RUTINA_ID, 0);
+
+        tvNombre = (TextView)findViewById(R.id.tvRutinaNombre);
+
+        tvNombre.setText(String.valueOf(nombreRutina));
+
 
         //hasta aqui funciona
 
@@ -38,21 +43,9 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerViewEjerciciosRutina.setLayoutManager(layoutManager);
         EjercicioDAO ejercicioDAO = new EjercicioDAO(this);
-        dataset = ejercicioDAO.consultarEjerciciosRutina();
+        dataset = ejercicioDAO.consultarEjerciciosRutina(idRutina);
         recyclerViewEjerciciosRutina.setAdapter(new AdaptadorRutinaLista(dataset));
 
-        /*
-        ArrayList<Rutina> dataSet = new ArrayList<Rutina>();
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        layoutManager.setOrientation(RecyclerView.VERTICAL);
-        recyclerViewRutina.setLayoutManager(layoutManager);
-        rutinaDAO = new RutinaDAO(getContext());
-        dataSet = rutinaDAO.consultarRutinas();
-        recyclerViewRutina.setAdapter(new AdaptadorRutina(dataSet,this));
-
-        return view;
-
-         */
 
     }
 }

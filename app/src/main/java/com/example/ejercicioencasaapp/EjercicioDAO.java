@@ -15,16 +15,11 @@ public class EjercicioDAO {
         dataBaseOpenHelper = new DataBaseOpenHelper(context);
         sqLiteDatabase = dataBaseOpenHelper.getWritableDatabase();
     }
-    /*
-    public ArrayList<Ejercicio> consultarEjerciciosRutina() {
 
-    }
-
-    */
-    public ArrayList<Ejercicio> consultarEjerciciosRutina() {
+    public ArrayList<Ejercicio> consultarEjerciciosRutina(int id) {
         ArrayList<Ejercicio> ejercicios = new ArrayList<Ejercicio>();
         String[] parametro = new String[1];
-        parametro[0] = String.valueOf(1);
+        parametro[0] = String.valueOf(id);
         Cursor cursor = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaRutinas.CONSULTAR_EJERCICIOS,parametro);
         while (cursor.moveToNext()){
             ejercicios.add(new Ejercicio(cursor.getInt(0),cursor.getString(1),cursor.getInt(2)));
