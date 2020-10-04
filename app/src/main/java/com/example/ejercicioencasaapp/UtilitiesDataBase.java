@@ -31,9 +31,9 @@ public final class UtilitiesDataBase {
 
         static final String CONSULTAR_EJERCICIOS=
                 "SELECT * FROM "+TablaEjercicios.TABLE_NAME+
-                " WHERE "+TablaEjercicios.ID_EJERCICIO+" IN ( SELECT "+
-                        TablaEjerciciosRutina.ID_EJERCICIO+" FROM "+TablaEjerciciosRutina.TABLE_NAME+
-                " WHERE "+TablaEjerciciosRutina.ID_RUTINA+" = "+ID_RUTINA;
+                " WHERE "+TablaEjercicios.ID_EJERCICIO+" IN ( SELECT "+TablaEjerciciosRutina.ID_EJERCICIO+
+                        " FROM "+TablaEjerciciosRutina.TABLE_NAME+" WHERE "+TablaEjerciciosRutina.ID_RUTINA+
+                        " = ? )";
     }
 
     public class TablaEjerciciosRutina{
@@ -43,13 +43,10 @@ public final class UtilitiesDataBase {
         static final String ID_EJERCICIO="id_ejercicio";
 
 
-        static final String CREATE_TABLE_EJERCICIOS_RUTINA="CREATE TABLE "+TABLE_NAME+" " +
-                "("+ID_EJERCICIO_RUTINA+" INTEGER PRIMARY KEY, "+
-                ID_RUTINA+" INTEGER, "+ID_EJERCICIO+" INTEGER, "+
-                "FOREIGN KEY("+ID_RUTINA+") REFERENCES "+ TablaRutinas.TABLE_NAME+"("+TablaRutinas.ID_RUTINA+"), "+
-                "FOREIGN KEY("+ID_EJERCICIO+") REFERENCES "+TablaEjercicios.TABLE_NAME+"("+TablaEjercicios.ID_EJERCICIO+"))";
+        static final String CREATE_TABLE_EJERCICIOS_RUTINA="CREATE TABLE "+TABLE_NAME+" ("+ID_EJERCICIO_RUTINA+
+                " INTEGER PRIMARY KEY, "+ID_RUTINA+" INTEGER, "+ID_EJERCICIO+" INTEGER, "+
+                "FOREIGN KEY ("+ID_RUTINA+") REFERENCES "+ TablaRutinas.TABLE_NAME+" ("+TablaRutinas.ID_RUTINA+"), "+
+                "FOREIGN KEY ("+ID_EJERCICIO+") REFERENCES "+TablaEjercicios.TABLE_NAME+" ("+TablaEjercicios.ID_EJERCICIO+"))";
 
-        static  final String CONSULTAR_EJERCICIOS_RUTINA="SELECT * FROM "+TablaEjercicios.TABLE_NAME+" WHERE "+
-                TablaEjercicios.ID_EJERCICIO+" = "+ID_EJERCICIO;
     }
 }

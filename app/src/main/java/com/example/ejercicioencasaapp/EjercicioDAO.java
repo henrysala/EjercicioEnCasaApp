@@ -23,7 +23,9 @@ public class EjercicioDAO {
     */
     public ArrayList<Ejercicio> consultarEjerciciosRutina() {
         ArrayList<Ejercicio> ejercicios = new ArrayList<Ejercicio>();
-        Cursor cursor = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaEjercicios.CONSULTAR_ALL_EJERCICIOS,null);
+        String[] parametro = new String[1];
+        parametro[0] = String.valueOf(1);
+        Cursor cursor = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaRutinas.CONSULTAR_EJERCICIOS,parametro);
         while (cursor.moveToNext()){
             ejercicios.add(new Ejercicio(cursor.getInt(0),cursor.getString(1),cursor.getInt(2)));
         }

@@ -81,6 +81,8 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         registro.put(UtilitiesDataBase.TablaEjerciciosRutina.ID_RUTINA,idRutina);
         registro.put(UtilitiesDataBase.TablaEjerciciosRutina.ID_EJERCICIO,idEjercicio);
 
+        sqLiteDatabase.insert(UtilitiesDataBase.TablaEjerciciosRutina.TABLE_NAME, null, registro);
+
     }
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
