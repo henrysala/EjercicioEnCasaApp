@@ -10,21 +10,26 @@ public class EjercicioDAO {
     private DataBaseOpenHelper dataBaseOpenHelper;
     private SQLiteDatabase sqLiteDatabase;
 
-    public EjercicioDAO(Context context){
+    public EjercicioDAO(Context context) {
 
         dataBaseOpenHelper = new DataBaseOpenHelper(context);
         sqLiteDatabase = dataBaseOpenHelper.getWritableDatabase();
-/*
-        public ArrayList<Ejercicio> consultarEjercicios() {
-            ArrayList<Ejercicio> ejercicios = new ArrayList<Ejercicio>();
-            Cursor cursor = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaRutinas.CONSULTAR_ALL_EJERCICIOS,null);
-            while (cursor.moveToNext()){
-                ejercicios.add(new Ejercicio(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3)));
-            }
-            sqLiteDatabase.close();
-            return ejercicios;
-        }
-
-*/
     }
+    /*
+    public ArrayList<Ejercicio> consultarEjerciciosRutina() {
+
+    }
+
+    */
+    public ArrayList<Ejercicio> consultarEjerciciosRutina() {
+        ArrayList<Ejercicio> ejercicios = new ArrayList<Ejercicio>();
+        Cursor cursor = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaEjercicios.CONSULTAR_ALL_EJERCICIOS,null);
+        while (cursor.moveToNext()){
+            ejercicios.add(new Ejercicio(cursor.getInt(0),cursor.getString(1),cursor.getInt(2)));
+        }
+        sqLiteDatabase.close();
+        return ejercicios;
+    }
+
+     
 }

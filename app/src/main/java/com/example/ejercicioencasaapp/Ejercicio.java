@@ -2,12 +2,12 @@ package com.example.ejercicioencasaapp;
 
 public class Ejercicio {
     private int id, duracion;
-    private String name;
+    private String nombre;
 
-    public Ejercicio(int id, int duracion, String name) {
+    public Ejercicio(int id, String nombre, int duracion) {
         this.id = id;
         this.duracion = duracion;
-        this.name = name;
+        this.nombre = nombre;
     }
 
     public int getId() {
@@ -27,10 +27,10 @@ public class Ejercicio {
     }
 
     public String getName() {
-        return name;
+        return nombre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String nombre) {
+        this.nombre = nombre;
     }
 }

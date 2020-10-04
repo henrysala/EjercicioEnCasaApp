@@ -6,7 +6,7 @@ public final class UtilitiesDataBase {
 
     public class TablaEjercicios{
         static final String TABLE_NAME="ejercicios";
-        static final String ID_EJERCICIO="idEjercicio";
+        static final String ID_EJERCICIO="id_ejercicio";
         static final String NAME="nombre";
         static final String DURATION="duracion";
 
@@ -19,7 +19,7 @@ public final class UtilitiesDataBase {
     //la tabla TablaRutinas es la que agrupara las rutinas de ejercicios del modulo Ejercicios
     public class TablaRutinas{
         static final String TABLE_NAME="rutinas";
-        static final String ID_RUTINA="idRutina";
+        static final String ID_RUTINA="id_rutina";
         static final String NAME="nombre";
         static final String QUANTITY="cantidad";
         static final String DURATION="duracion";
@@ -28,19 +28,26 @@ public final class UtilitiesDataBase {
                 +NAME+" TEXT, "+QUANTITY+" INTEGER, "+DURATION+" INTEGER)";
 
         static final String CONSULTAR_ALL_RUTINES="SELECT * FROM "+TABLE_NAME;
+
+        static final String CONSULTAR_RUTINA=
+                "(SELECT * FROM "+TablaEjerciciosRutina.TABLE_NAME+
+                " WHERE "+TablaEjerciciosRutina.ID_RUTINA+" = "+ID_RUTINA+")";
     }
 
     public class TablaEjerciciosRutina{
         static final String TABLE_NAME="ejerciciosRutina";
         static final String ID_EJERCICIO_RUTINA="idEjercicioRutina";
-        static final String ID_RUTINA="idRutina";
-        static final String ID_EJERCICIO="idEjercicio";
+        static final String ID_RUTINA="id_rutina";
+        static final String ID_EJERCICIO="id_ejercicio";
 
 
         static final String CREATE_TABLE_EJERCICIOS_RUTINA="CREATE TABLE "+TABLE_NAME+" " +
                 "("+ID_EJERCICIO_RUTINA+" INTEGER PRIMARY KEY, "+
-         //       ID_RUTINA+" INTEGER, "+ID_EJERCICIO+" INTEGER)";
+                ID_RUTINA+" INTEGER, "+ID_EJERCICIO+" INTEGER, "+
                 "FOREIGN KEY("+ID_RUTINA+") REFERENCES "+ TablaRutinas.TABLE_NAME+"("+TablaRutinas.ID_RUTINA+"), "+
                 "FOREIGN KEY("+ID_EJERCICIO+") REFERENCES "+TablaEjercicios.TABLE_NAME+"("+TablaEjercicios.ID_EJERCICIO+"))";
+
+        static  final String CONSULTAR_EJERCICIOS_RUTINA="SELECT * FROM "+TablaEjercicios.TABLE_NAME+" WHERE "+
+                TablaEjercicios.ID_EJERCICIO+" = "+ID_EJERCICIO;
     }
 }

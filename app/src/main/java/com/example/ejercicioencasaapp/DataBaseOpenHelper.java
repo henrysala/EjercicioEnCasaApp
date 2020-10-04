@@ -19,16 +19,16 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         //Se crea la tabla de ejercicios
         sqLiteDatabase.execSQL(UtilitiesDataBase.TablaEjercicios.CREATE_TABLE_EJERCICIOS);
         //se agregan los ejercicios a la tabla
-        insertEjercicio(sqLiteDatabase, 0,"Salto de tijeras", 60000);
-        insertEjercicio(sqLiteDatabase, 1,"Crunch abdominal", 60000);
-        insertEjercicio(sqLiteDatabase, 2,"plancha", 60000);
-        insertEjercicio(sqLiteDatabase, 3,"Flexión de pecho con apoyo de rodilla", 60000);
-        insertEjercicio(sqLiteDatabase, 4,"Tijera de brazos", 60000);
-        insertEjercicio(sqLiteDatabase, 5,"Elevación lateral de brazos", 60000);
-        insertEjercicio(sqLiteDatabase, 6,"Inclinación lateral con toque de talon", 60000);
-        insertEjercicio(sqLiteDatabase, 7,"Sentadillas", 60000);
-        insertEjercicio(sqLiteDatabase, 8,"Sentadilla de tijera", 60000);
-        insertEjercicio(sqLiteDatabase, 9,"Elevacion de pantorrilla", 60000);
+        insertEjercicio(sqLiteDatabase, 0,"Salto de tijeras", 60);
+        insertEjercicio(sqLiteDatabase, 1,"Crunch abdominal", 60);
+        insertEjercicio(sqLiteDatabase, 2,"plancha", 60);
+        insertEjercicio(sqLiteDatabase, 3,"Flexión de pecho con apoyo de rodilla", 60);
+        insertEjercicio(sqLiteDatabase, 4,"Tijera de brazos", 60);
+        insertEjercicio(sqLiteDatabase, 5,"Elevación lateral de brazos", 60);
+        insertEjercicio(sqLiteDatabase, 6,"Inclinación lateral con toque de talon", 60);
+        insertEjercicio(sqLiteDatabase, 7,"Sentadillas", 60);
+        insertEjercicio(sqLiteDatabase, 8,"Sentadilla de tijera", 60);
+        insertEjercicio(sqLiteDatabase, 9,"Elevacion de pantorrilla", 60);
 
         //Se crea la tabla de rutinas
         sqLiteDatabase.execSQL(UtilitiesDataBase.TablaRutinas.CREATE_TABLE_RUTINAS);
@@ -43,6 +43,15 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         insertEjerciciosRutina(sqLiteDatabase,00, 0,0);
         insertEjerciciosRutina(sqLiteDatabase,01, 0,1);
         insertEjerciciosRutina(sqLiteDatabase,02, 0,2);
+
+        insertEjerciciosRutina(sqLiteDatabase,13, 1,3);
+        insertEjerciciosRutina(sqLiteDatabase,14, 1,4);
+        insertEjerciciosRutina(sqLiteDatabase,15, 1,5);
+        insertEjerciciosRutina(sqLiteDatabase,16, 1,6);
+
+        insertEjerciciosRutina(sqLiteDatabase,27, 2,7);
+        insertEjerciciosRutina(sqLiteDatabase,28, 2,8);
+        insertEjerciciosRutina(sqLiteDatabase,29, 2,9);
 
     }
 
