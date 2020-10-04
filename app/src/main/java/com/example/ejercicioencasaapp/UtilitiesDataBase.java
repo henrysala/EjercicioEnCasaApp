@@ -29,9 +29,11 @@ public final class UtilitiesDataBase {
 
         static final String CONSULTAR_ALL_RUTINES="SELECT * FROM "+TABLE_NAME;
 
-        static final String CONSULTAR_RUTINA=
-                "(SELECT * FROM "+TablaEjerciciosRutina.TABLE_NAME+
-                " WHERE "+TablaEjerciciosRutina.ID_RUTINA+" = "+ID_RUTINA+")";
+        static final String CONSULTAR_EJERCICIOS=
+                "SELECT * FROM "+TablaEjercicios.TABLE_NAME+
+                " WHERE "+TablaEjercicios.ID_EJERCICIO+" IN ( SELECT "+
+                        TablaEjerciciosRutina.ID_EJERCICIO+" FROM "+TablaEjerciciosRutina.TABLE_NAME+
+                " WHERE "+TablaEjerciciosRutina.ID_RUTINA+" = "+ID_RUTINA;
     }
 
     public class TablaEjerciciosRutina{
