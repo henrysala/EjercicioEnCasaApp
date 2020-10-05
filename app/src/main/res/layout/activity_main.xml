@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    >
+    tools:context=".views.MainActivity">
 
     <include layout="@layout/toolbar"
         android:id="@+id/myToolbar"/>
@@ -23,7 +22,7 @@
             android:id="@+id/indicator"
             android:layout_width="0dp"
             android:layout_height="30dp"
-            android:background="@drawable/gradient_bg"/>
+            android:background="@color/colorPrimary"/>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab"
@@ -32,8 +31,8 @@
             android:background="@drawable/tab_bg"
             app:tabGravity="fill"
             app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/colorText"
             app:tabTextColor="@color/colorSecondary"
-            app:tabSelectedTextColor="@color/colorPrimary"
             app:tabIndicatorColor="@null"
             app:tabRippleColor="@null"/>
 
