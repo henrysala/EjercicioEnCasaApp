@@ -4,33 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp"
-    android:background="@drawable/gradient_bg"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gradient_bg">
+        android:background="@drawable/gradient_ejercicios">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.2">
+            android:layout_marginStart="10dp">
 
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/gifImageView"
-                android:layout_width="130dp"
+                android:layout_width="120dp"
                 android:layout_height="80dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
                 android:src="@drawable/abdomen_toque_talon" />
 
             <LinearLayout
@@ -39,21 +38,21 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
                 android:layout_toEndOf="@+id/gifImageView"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tvNombreEjercicio"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="50dp"
                     android:text="TextView"
                     android:textColor="@color/colorText"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_marginTop="30dp"
-                    android:layout_marginLeft="15dp"/>
+                    android:layout_marginLeft="10dp"/>
 
                 <TextView
                     android:id="@+id/tvDuracionEjercicio"
@@ -61,7 +60,8 @@
                     android:layout_height="30dp"
                     android:text="TextView"
                     android:textColor="@color/colorText"
-                    android:layout_marginLeft="15dp"/>
+                    android:textSize="15sp"
+                    android:layout_marginLeft="10dp"/>
 
             </LinearLayout>
 
