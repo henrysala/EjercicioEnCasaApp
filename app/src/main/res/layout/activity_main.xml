@@ -21,8 +21,8 @@
         <View
             android:id="@+id/indicator"
             android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:background="@color/colorPrimary"/>
+            android:layout_height="40dp"
+            android:background="@drawable/indicator_bg"/>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab"
@@ -31,8 +31,8 @@
             android:background="@drawable/tab_bg"
             app:tabGravity="fill"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/colorText"
-            app:tabTextColor="@color/colorSecondary"
+            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabTextColor="@color/colorText"
             app:tabIndicatorColor="@null"
             app:tabRippleColor="@null"/>
 
