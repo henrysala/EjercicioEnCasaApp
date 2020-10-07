@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
-    android:layout_marginTop="20dp"
+    android:layout_marginTop="10dp"
     android:layout_marginBottom="20dp"
     android:clickable="true"
     app:cardCornerRadius="20dp"
@@ -26,39 +26,76 @@
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="16dp" />
 
-        <TextView
-            android:id="@+id/tvNombreRutina"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="52dp"
-            android:layout_marginBottom="100dp"
-            android:textColor="@color/colorText"
-            android:textSize="25sp"
-            android:textStyle="bold"
+            android:orientation="vertical"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3"
+            tools:layout_editor_absoluteX="0dp">
 
-        <TextView
-            android:id="@+id/tvCantidadEjercicios"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="52dp"
-            android:layout_marginBottom="70dp"
-            android:textColor="@color/colorText"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/tvNombreRutina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorText"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/tvDuracionRutina"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="52dp"
-            android:layout_marginBottom="40dp"
-            android:textColor="@color/colorText"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent">>
+
+                <ImageView
+                    android:id="@+id/ivPesa"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="4dp"
+                    app:srcCompat="@drawable/icon_pesa" />
+
+                <TextView
+                    android:id="@+id/tvCantidadEjercicios"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/colorText"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent">>
+
+                <ImageView
+                    android:id="@+id/ivTimer"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="4dp"
+                    app:srcCompat="@drawable/icon_timer" />
+
+                <TextView
+                    android:id="@+id/tvDuracionRutina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/colorText"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </LinearLayout>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

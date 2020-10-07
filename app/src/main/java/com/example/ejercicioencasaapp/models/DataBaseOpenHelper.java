@@ -19,15 +19,15 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(UtilitiesDataBase.TablaEjercicios.CREATE_TABLE_EJERCICIOS);
         //se agregan los ejercicios a la tabla
         insertEjercicio(sqLiteDatabase, 0,"Salto de tijeras", 60);
-        insertEjercicio(sqLiteDatabase, 1,"Crunch abdominal", 60);
-        insertEjercicio(sqLiteDatabase, 2,"Plancha", 60);
-        insertEjercicio(sqLiteDatabase, 3,"Flexión de pecho con apoyo", 60);
-        insertEjercicio(sqLiteDatabase, 4,"Tijera de brazos", 60);
-        insertEjercicio(sqLiteDatabase, 5,"Elevación lateral de brazos", 60);
-        insertEjercicio(sqLiteDatabase, 6,"Inclinación lateral", 60);
-        insertEjercicio(sqLiteDatabase, 7,"Sentadillas", 60);
-        insertEjercicio(sqLiteDatabase, 8,"Sentadilla de tijera", 60);
-        insertEjercicio(sqLiteDatabase, 9,"Elevacion de pantorrilla", 60);
+        insertEjercicio(sqLiteDatabase, 1,"Crunch abdominal", 30);
+        insertEjercicio(sqLiteDatabase, 2,"Plancha", 30);
+        insertEjercicio(sqLiteDatabase, 3,"Flexión de pecho con apoyo", 40);
+        insertEjercicio(sqLiteDatabase, 4,"Tijera de brazos", 30);
+        insertEjercicio(sqLiteDatabase, 5,"Elevación lateral de brazos", 30);
+        insertEjercicio(sqLiteDatabase, 6,"Inclinación lateral", 30);
+        insertEjercicio(sqLiteDatabase, 7,"Sentadillas", 30);
+        insertEjercicio(sqLiteDatabase, 8,"Sentadilla de tijera", 30);
+        insertEjercicio(sqLiteDatabase, 9,"Elevacion de pantorrilla", 40);
 
         //Se crea la tabla de rutinas
         sqLiteDatabase.execSQL(UtilitiesDataBase.TablaRutinas.CREATE_TABLE_RUTINAS);
