@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
         android:layout_marginHorizontal="20dp">
 
         <ImageView
@@ -44,7 +45,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="409dp">
+        android:layout_height="317dp">
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -64,17 +65,17 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="142dp">
+        android:layout_height="112dp">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnComenzarRutina"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="48dp"
+            android:layout_marginBottom="40dp"
             android:clickable="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@android:drawable/ic_media_play" />
 
