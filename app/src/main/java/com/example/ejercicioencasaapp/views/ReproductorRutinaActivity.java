@@ -12,15 +12,21 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.ejercicioencasaapp.R;
+import com.example.ejercicioencasaapp.models.EjercicioDAO;
+
+import java.util.ArrayList;
 
 public class ReproductorRutinaActivity extends AppCompatActivity {
-    public static final String EXTRA_REPRODUCTOR = "rutinaNombre";
-    private String nombreRutina;
-    private TextView tvNombreRutina, tvCurrentEjercicio;
+    public static final String EXTRA_NOMBRE_RUTINA = "rutinaNombre";
+    public static final String EXTRA_ID_RUTINA = "rutinaID";
+    private String nombreRutina,nombreEjercicio;
+    private int idRutina;
+    private TextView tvNombreRutina, tvCurrentEjercicio, tvIDRutina;
     private Button btnPlay;
-    private int seconds = 30;
+    private int seconds = 15;
     public int count = 0;
     private boolean running, wasRunning;
+    private ArrayList<Ejercicio> dataset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +35,32 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        nombreRutina = intent.getStringExtra(EXTRA_REPRODUCTOR);
-        tvNombreRutina = (TextView)findViewById(R.id.tvReproductor);
+        //ArrayList<Ejercicio> dataset = (ArrayList<Ejercicio>) getIntent().getSerializableExtra("dataset");
+        //ArrayList<? extends Ejercicio> dataset = getIntent().getParcelableArrayListExtra("listaEjercicios");
+
+
+        nombreRutina = intent.getStringExtra(EXTRA_NOMBRE_RUTINA);
+        idRutina = intent.getIntExtra(EXTRA_ID_RUTINA,0);
+
+        tvNombreRutina = (TextView)findViewById(R.id.tvReproductorNombreRutina);
         tvNombreRutina.setText(String.valueOf(nombreRutina));
 
-        tvCurrentEjercicio = (TextView)findViewById(R.id.tvCurrentEjercicio);
-        tvCurrentEjercicio.setText(String.valueOf(count));
+        tvIDRutina = (TextView)findViewById(R.id.tvReproductorIdRutina);
+        tvIDRutina.setText(String.valueOf(idRutina));
+
+
         running = true;
         btnPlay = (Button)findViewById(R.id.btnPlay);
+
+        //Estoy tratando de crear nuevamente la lista de ejercicios de la rutina
+        ArrayList<Ejercicio> dataset;
+        EjercicioDAO ejercicioDAO = new EjercicioDAO(this);
+        dataset = ejercicioDAO.consultarEjerciciosRutina(idRutina);
+
+        tvCurrentEjercicio = (TextView)findViewById(R.id.tvReproductorCurrentEjercicio);
+        //tvCurrentEjercicio.setText(dataset.get(0).getName());
+        tvCurrentEjercicio.setText("PREPARATE");
+
 
         if(savedInstanceState != null){
             seconds = savedInstanceState.getInt("seconds");
@@ -58,17 +82,19 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
     //Al volver a la ventana de la aplicacion el reproductor sigue pausado hasta que se de click al boton
     protected void onStart() {
         super.onStart();
-        if(wasRunning){
-            running = true;
+        if(running){
+            //running = true;
             btnPlay.setText("pause");
+        }else{
+            btnPlay.setText("play");
         }
     }
 
     @Override
-    //Al cambiar de ventana en el telefono el reproductor se pausa automaticamente
+    //Al cambiar de ventana en el dispositivo el reproductor se pausa automaticamente
     protected void onStop() {
         super.onStop();
-        wasRunning = false;
+        //wasRunning = false;
         running = false;
     }
 
@@ -80,7 +106,7 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
     }
 
     private void runTimer(){
-        final TextView timeView = (TextView)findViewById(R.id.tvTimer);
+        final TextView timeView = (TextView)findViewById(R.id.tvReproductorTimer);
         final Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
@@ -94,8 +120,19 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
                 }
                 if(seconds == 0){
                     count++;
-                    tvCurrentEjercicio.setText(String.valueOf(count));
-                    seconds = 30;
+                    //tvCurrentEjercicio.setText("descanso");
+                    //seconds = 30;
+
+                    if(count == 1){
+                        tvCurrentEjercicio.setText("Descanso");
+                        seconds = 15;
+                    }else{
+                        tvCurrentEjercicio.setText("ejercicio");
+                        //seconds = dataset.get(0).getDuracion();
+                        seconds = 30;
+                    }
+
+
                 }
                 handler.postDelayed(this,1000);
             }

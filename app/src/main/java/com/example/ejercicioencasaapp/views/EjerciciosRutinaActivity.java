@@ -53,7 +53,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         //hasta aqui funciona
         recyclerViewEjerciciosRutina = (RecyclerView)findViewById(R.id.rvEjerciciosRutina);
 
-        ArrayList<Ejercicio> dataset;
+        final ArrayList<Ejercicio> dataset;
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerViewEjerciciosRutina.setLayoutManager(layoutManager);
@@ -67,7 +67,10 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), ReproductorRutinaActivity.class);
-                intent.putExtra(ReproductorRutinaActivity.EXTRA_REPRODUCTOR, nombreRutina);
+                intent.putExtra(ReproductorRutinaActivity.EXTRA_NOMBRE_RUTINA, nombreRutina);
+                intent.putExtra(ReproductorRutinaActivity.EXTRA_ID_RUTINA,idRutina);
+                //intent.putExtra("dataset", dataset);
+                //intent.putParcelableArrayListExtra("listaEjercicios", dataset);
                 view.getContext().startActivity(intent);
             }
         });

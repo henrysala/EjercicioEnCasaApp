@@ -7,34 +7,46 @@
     tools:context=".views.ReproductorRutinaActivity">
 
     <TextView
-        android:id="@+id/tvTimer"
+        android:id="@+id/tvReproductorTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/tvReproductor"
+        app:layout_constraintBottom_toTopOf="@+id/tvReproductorNombreRutina"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.489" />
 
     <TextView
-        android:id="@+id/tvReproductor"
+        android:id="@+id/tvReproductorNombreRutina"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/btnPlay"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.495" />
+
+    <TextView
+        android:id="@+id/tvReproductorIdRutina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="328dp"
+        android:layout_marginEnd="52dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/tvReproductorNombreRutina"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvCurrentEjercicio"
+        android:id="@+id/tvReproductorCurrentEjercicio"
         android:layout_width="63dp"
         android:layout_height="20dp"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/btnPlay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvReproductor" />
+        app:layout_constraintTop_toBottomOf="@+id/tvReproductorNombreRutina" />
 
     <Button
         android:id="@+id/btnPlay"
