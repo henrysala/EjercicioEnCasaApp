@@ -19,13 +19,12 @@ import pl.droidsonroids.gif.GifImageView;
 public class ReproductorRutinaActivity extends AppCompatActivity {
 
     public static final String EXTRA_RUTINA_NAME = "rutina_nombre";
-    private static final String EXTRA_IMAGE = "image_rutina";
     public static final String EXTRA_RUTINA_ID = "id_rutina";
     public static final String EXTRA_RUTINA_CANTIDAD = "cantidad_rutina";
     private String nombreRutina;
     private TextView tvNombreRutina, tvCurrentEjercicio, tvTimer, tvContador;
     private Button btnPlay;
-    private int gif_ejercicio,idRutina, cantidadRutina;
+    private int idRutina, cantidadRutina;
     private GifImageView gvEjercicio;
     private int seconds = 10;
     public int count = 0;
@@ -44,15 +43,11 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
         tvNombreRutina = (TextView)findViewById(R.id.tvCurrentRutina);
         tvNombreRutina.setText(String.valueOf(nombreRutina));
 
-        gif_ejercicio = intent.getIntExtra(EXTRA_IMAGE,0);
         gvEjercicio = (GifImageView)findViewById(R.id.gvEjercicio);
-        gvEjercicio.setBackgroundResource(gif_ejercicio);
 
         cantidadRutina = intent.getIntExtra(EXTRA_RUTINA_CANTIDAD,0);
         tvContador = (TextView)findViewById(R.id.tvReproductor);
         tvContador.setText(String.valueOf(cantidadRutina));
-
-
 
 
         running = true;
@@ -134,9 +129,11 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
 
                         if(count%2 == 0){
                             tvCurrentEjercicio.setText("Descanso");
+                            gvEjercicio.setBackgroundResource(R.drawable.calf);
                             seconds = 10;
                         }else{
                             tvCurrentEjercicio.setText(dataset.get(count/2).getName());
+                            gvEjercicio.setBackgroundResource(dataset.get(count/2).getGifEjercicio());
                             seconds = dataset.get(count/2).getDuracion();
                             //seconds = 5;
                         }
