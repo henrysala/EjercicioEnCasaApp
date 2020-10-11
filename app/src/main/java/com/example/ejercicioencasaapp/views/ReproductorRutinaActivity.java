@@ -129,7 +129,7 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
 
                         if(count%2 == 0){
                             tvCurrentEjercicio.setText("Descanso");
-                            gvEjercicio.setBackgroundResource(R.drawable.calf);
+                            gvEjercicio.setBackgroundResource(R.drawable.abdomen_toque_talon);
                             seconds = 10;
                         }else{
                             tvCurrentEjercicio.setText(dataset.get(count/2).getName());
