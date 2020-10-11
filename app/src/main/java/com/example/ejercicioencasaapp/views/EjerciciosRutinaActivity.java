@@ -6,11 +6,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.ejercicioencasaapp.R;
 import com.example.ejercicioencasaapp.models.AdaptadorRutinaLista;
 import com.example.ejercicioencasaapp.models.EjercicioDAO;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -21,6 +24,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
     private String nombreRutina;
     private int idRutina;
     private TextView tvNombre;
+    //private Button btnComenzarRutina;
 
 
     @Override
@@ -48,6 +52,18 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         EjercicioDAO ejercicioDAO = new EjercicioDAO(this);
         dataset = ejercicioDAO.consultarEjerciciosRutina(idRutina);
         recyclerViewEjerciciosRutina.setAdapter(new AdaptadorRutinaLista(dataset));
+
+        FloatingActionButton btnComenzarRutina = (FloatingActionButton)findViewById(R.id.btnComenzarRutina);
+
+        btnComenzarRutina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), ReproductorRutinaActivity.class);
+                intent.putExtra(ReproductorRutinaActivity.EXTRA_REPRODUCTOR, nombreRutina);
+                view.getContext().startActivity(intent);
+            }
+        });
+
 
     }
 }
