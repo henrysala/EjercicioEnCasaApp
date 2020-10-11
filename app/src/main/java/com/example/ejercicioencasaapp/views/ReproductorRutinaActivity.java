@@ -6,20 +6,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.example.ejercicioencasaapp.R;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class ReproductorRutinaActivity extends AppCompatActivity {
-    public static final String EXTRA_REPRODUCTOR = "rutinaNombre";
+    public static final String EXTRA_RUTINA_NAME = "rutina_nombre";
+    private static final String EXTRA_IMAGE = "image_rutina";
     private String nombreRutina;
-    private TextView tvNombreRutina, tvCurrentEjercicio;
+    private TextView tvNombreRutina, tvCurrentEjercicio, tvTimer, tvContador;
     private Button btnPlay;
+    private int gif_ejercicio;
+    private GifImageView gvEjercicio;
     private int seconds = 30;
-    public int count = 0;
+    public int count = 1;
     private boolean running, wasRunning;
 
     @Override
@@ -29,12 +32,17 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        nombreRutina = intent.getStringExtra(EXTRA_REPRODUCTOR);
-        tvNombreRutina = (TextView)findViewById(R.id.tvReproductor);
+        nombreRutina = intent.getStringExtra(EXTRA_RUTINA_NAME);
+        tvNombreRutina = (TextView)findViewById(R.id.tvCurrentRutina);
         tvNombreRutina.setText(String.valueOf(nombreRutina));
 
-        tvCurrentEjercicio = (TextView)findViewById(R.id.tvCurrentEjercicio);
-        tvCurrentEjercicio.setText(String.valueOf(count));
+        gif_ejercicio = intent.getIntExtra(EXTRA_IMAGE,0);
+        gvEjercicio = (GifImageView)findViewById(R.id.gvEjercicio);
+        gvEjercicio.setBackgroundResource(gif_ejercicio);
+
+        tvContador = (TextView)findViewById(R.id.tvReproductor);
+        tvContador.setText(String.valueOf(count));
+
         running = true;
         btnPlay = (Button)findViewById(R.id.btnPlay);
 
@@ -94,7 +102,7 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
                 }
                 if(seconds == 0){
                     count++;
-                    tvCurrentEjercicio.setText(String.valueOf(count));
+                    tvContador.setText(String.valueOf(count));
                     seconds = 30;
                 }
                 handler.postDelayed(this,1000);

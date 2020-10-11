@@ -67,7 +67,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), ReproductorRutinaActivity.class);
-                intent.putExtra(ReproductorRutinaActivity.EXTRA_REPRODUCTOR, nombreRutina);
+                intent.putExtra(ReproductorRutinaActivity.EXTRA_RUTINA_NAME, nombreRutina);
                 view.getContext().startActivity(intent);
             }
         });
