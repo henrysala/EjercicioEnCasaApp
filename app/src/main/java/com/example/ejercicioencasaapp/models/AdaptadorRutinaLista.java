@@ -1,8 +1,10 @@
 package com.example.ejercicioencasaapp.models;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ejercicioencasaapp.R;
 import com.example.ejercicioencasaapp.views.Ejercicio;
+import com.example.ejercicioencasaapp.views.ReproductorRutinaActivity;
 
 import java.util.ArrayList;
 
@@ -46,6 +49,7 @@ public class AdaptadorRutinaLista extends RecyclerView.Adapter<AdaptadorRutinaLi
         //private ImageView ivEjercicio;
         private TextView nombreEjercicio, duracionEjercicio;
         private GifImageView gif_ejercicio;
+        //private Button btnComenzarRutina;
 
         public ViewHolderCVRutinaLista(View view){
           super(view);
@@ -53,7 +57,8 @@ public class AdaptadorRutinaLista extends RecyclerView.Adapter<AdaptadorRutinaLi
             nombreEjercicio = (TextView)view.findViewById(R.id.tvNombreEjercicio);
             duracionEjercicio = (TextView)view.findViewById(R.id.tvDuracionEjercicio);
             gif_ejercicio = (GifImageView)view.findViewById(R.id.gifImageView);
-
+            duracionEjercicio     = (TextView)view.findViewById(R.id.tvDuracionEjercicio);
+            //btnComenzarRutina = (Button)view.findViewById(R.id.btnComenzarRutina);
         }
 
     }
