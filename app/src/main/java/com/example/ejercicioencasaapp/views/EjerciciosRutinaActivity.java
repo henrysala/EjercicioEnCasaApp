@@ -67,10 +67,12 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), ReproductorRutinaActivity.class);
-                intent.putExtra(ReproductorRutinaActivity.EXTRA_NOMBRE_RUTINA, nombreRutina);
-                intent.putExtra(ReproductorRutinaActivity.EXTRA_ID_RUTINA,idRutina);
+
+                intent.putExtra(ReproductorRutinaActivity.EXTRA_RUTINA_NAME, nombreRutina);
+                intent.putExtra(ReproductorRutinaActivity.EXTRA_RUTINA_ID,idRutina);
                 //intent.putExtra("dataset", dataset);
                 //intent.putParcelableArrayListExtra("listaEjercicios", dataset);
+
                 view.getContext().startActivity(intent);
             }
         });

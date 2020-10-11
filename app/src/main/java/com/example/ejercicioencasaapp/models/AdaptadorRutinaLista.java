@@ -57,7 +57,7 @@ public class AdaptadorRutinaLista extends RecyclerView.Adapter<AdaptadorRutinaLi
             nombreEjercicio = (TextView)view.findViewById(R.id.tvNombreEjercicio);
             duracionEjercicio = (TextView)view.findViewById(R.id.tvDuracionEjercicio);
             gif_ejercicio = (GifImageView)view.findViewById(R.id.gifImageView);
-            duracionEjercicio     = (TextView)view.findViewById(R.id.tvDuracionEjercicio);
+            duracionEjercicio = (TextView)view.findViewById(R.id.tvDuracionEjercicio);
             //btnComenzarRutina = (Button)view.findViewById(R.id.btnComenzarRutina);
         }
 
