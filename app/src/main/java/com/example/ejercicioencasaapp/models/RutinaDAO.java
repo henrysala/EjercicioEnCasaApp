@@ -21,7 +21,7 @@ public class RutinaDAO {
         ArrayList<Rutina> rutinas = new ArrayList<Rutina>();
         Cursor cursor = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaRutinas.CONSULTAR_ALL_RUTINES,null);
         while (cursor.moveToNext()){
-            rutinas.add(new Rutina(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3)));
+            rutinas.add(new Rutina(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3),cursor.getInt(4)));
         }
         sqLiteDatabase.close();
         return rutinas;

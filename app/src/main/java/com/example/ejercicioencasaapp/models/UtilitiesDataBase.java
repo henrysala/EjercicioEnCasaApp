@@ -9,9 +9,10 @@ public final class UtilitiesDataBase {
         static final String ID_EJERCICIO="id_ejercicio";
         static final String NAME="nombre";
         static final String DURATION="duracion";
+        static final String GIF="gif";
 
         static final String CREATE_TABLE_EJERCICIOS="CREATE TABLE "+TABLE_NAME+" ("+ID_EJERCICIO+" INTEGER PRIMARY KEY, "
-                +NAME+" TEXT, "+DURATION+" INTEGER)";
+                +NAME+" TEXT, "+DURATION+" INTEGER, " + GIF + " INTEGER)";
 
         static final String CONSULTAR_ALL_EJERCICIOS="SELECT * FROM "+TABLE_NAME;
     }
@@ -23,9 +24,10 @@ public final class UtilitiesDataBase {
         static final String NAME="nombre";
         static final String QUANTITY="cantidad";
         static final String DURATION="duracion";
+        static final String IMAGE_RUTINA = "image_rutina";
 
         static final String CREATE_TABLE_RUTINAS="CREATE TABLE "+TABLE_NAME+" ("+ID_RUTINA+" INTEGER PRIMARY KEY, "
-                +NAME+" TEXT, "+QUANTITY+" INTEGER, "+DURATION+" INTEGER)";
+                +NAME+" TEXT, "+QUANTITY+" INTEGER, "+DURATION+" INTEGER, " + IMAGE_RUTINA+ " INTEGER)";
 
         static final String CONSULTAR_ALL_RUTINES="SELECT * FROM "+TABLE_NAME;
 

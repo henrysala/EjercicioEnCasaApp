@@ -27,16 +27,12 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/abdomen_toque_talon" />
+                android:layout_marginTop="10dp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="5dp"
@@ -54,7 +50,7 @@
                     android:layout_marginLeft="10dp"/>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
@@ -73,15 +69,40 @@
                     <TextView
                         android:id="@+id/tvDuracionEjercicio"
                         android:layout_width="wrap_content"
-                        android:layout_height="30dp"
+                        android:layout_height="20dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="5dp"
                         android:text="TextView"
                         android:textColor="@color/colorText"
                         android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvTiempo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Segundos"
+                        android:textColor="@color/colorText"
+                        android:textSize="12sp" />
+
                 </LinearLayout>
 
             </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/ibSelection"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:focusable="true"
+                app:srcCompat="@drawable/icon_selection" />
 
         </RelativeLayout>
 

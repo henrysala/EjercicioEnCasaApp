@@ -3,12 +3,14 @@ package com.example.ejercicioencasaapp.views;
 public class Rutina {
     private int id, cantidad, duracion;
     private String nombre;
+    private int imageRutina;
 
-    public Rutina(int id, String nombre, int cantidad, int duracion) {
+    public Rutina(int id, String nombre, int cantidad, int duracion, int imageRutina) {
         this.id = id;
+        this.nombre = nombre;
         this.cantidad = cantidad;
         this.duracion = duracion;
-        this.nombre = nombre;
+        this.imageRutina = imageRutina;
     }
 
     public int getId() {
@@ -42,4 +44,6 @@ public class Rutina {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public int getImageRutina() { return imageRutina;   }
 }

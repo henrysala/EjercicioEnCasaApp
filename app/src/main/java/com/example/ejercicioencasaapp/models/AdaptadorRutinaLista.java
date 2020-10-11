@@ -13,6 +13,8 @@ import com.example.ejercicioencasaapp.views.Ejercicio;
 
 import java.util.ArrayList;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class AdaptadorRutinaLista extends RecyclerView.Adapter<AdaptadorRutinaLista.ViewHolderCVRutinaLista> {
     private ArrayList<Ejercicio> dataset;
 
@@ -32,6 +34,7 @@ public class AdaptadorRutinaLista extends RecyclerView.Adapter<AdaptadorRutinaLi
         final Ejercicio ejercicio = dataset.get(position);
         holder.nombreEjercicio.setText(ejercicio.getName());
         holder.duracionEjercicio.setText(String.valueOf(ejercicio.getDuracion()));
+        holder.gif_ejercicio.setBackgroundResource(ejercicio.getGifEjercicio());
     }
 
     @Override
@@ -42,12 +45,15 @@ public class AdaptadorRutinaLista extends RecyclerView.Adapter<AdaptadorRutinaLi
     public static class ViewHolderCVRutinaLista extends RecyclerView.ViewHolder {
         //private ImageView ivEjercicio;
         private TextView nombreEjercicio, duracionEjercicio;
+        private GifImageView gif_ejercicio;
 
         public ViewHolderCVRutinaLista(View view){
           super(view);
             //ivEjercicio = (ImageView)view.findViewById(R.id.ivEjercicio);
             nombreEjercicio = (TextView)view.findViewById(R.id.tvNombreEjercicio);
-            duracionEjercicio     = (TextView)view.findViewById(R.id.tvDuracionEjercicio);
+            duracionEjercicio = (TextView)view.findViewById(R.id.tvDuracionEjercicio);
+            gif_ejercicio = (GifImageView)view.findViewById(R.id.gifImageView);
+
         }
 
     }

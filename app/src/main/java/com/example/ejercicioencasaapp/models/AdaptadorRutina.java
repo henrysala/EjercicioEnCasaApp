@@ -36,25 +36,24 @@ public class AdaptadorRutina extends RecyclerView.Adapter<AdaptadorRutina.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderRutina holder, final int position) {
+    public void onBindViewHolder(@NonNull final ViewHolderRutina holder, final int position) {
         final Rutina rutina = dataSet.get(position);
         //holder.id.setText(String.valueOf(rutina.getId()));
         holder.nombre.setText(rutina.getNombre());
         holder.cantidad.setText(String.valueOf(rutina.getCantidad()));
         holder.duracion.setText(String.valueOf(rutina.getDuracion()));
-        holder.back_img.setImageResource(R.drawable.cardio_rutina);
+        holder.back_img.setImageResource(rutina.getImageRutina());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), EjerciciosRutinaActivity.class);
-                //intent.putExtra(EjerciciosRutinaActivity.RUTINA,rutina.getNombre());
                 intent.putExtra(EjerciciosRutinaActivity.EXTRA_EJERCICIO,rutina.getNombre());
                 intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_ID,rutina.getId());
+                intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_IMAGE,rutina.getImageRutina());
                 view.getContext().startActivity(intent);
             }
         });
-
     }
 
     @Override

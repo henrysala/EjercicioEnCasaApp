@@ -21,8 +21,6 @@ public class MisPlanesFragment extends Fragment {
         return new MisPlanesFragment();
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

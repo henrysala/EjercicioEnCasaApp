@@ -50,7 +50,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent">>
 
@@ -65,7 +65,16 @@
                     android:id="@+id/tvCantidadEjercicios"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/colorText"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tvPalabraEjercicios"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Ejercicios"
                     android:textColor="@color/colorText"
                     android:textSize="15sp" />
 
@@ -74,7 +83,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent">>
 
@@ -89,10 +98,19 @@
                     android:id="@+id/tvDuracionRutina"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="5dp"
                     android:textColor="@color/colorText"
                     android:textSize="15sp"
                     app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvPalabraSegundos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Segundos"
+                    android:textColor="@color/colorText"
+                    android:textSize="15sp" />
 
             </LinearLayout>
         </LinearLayout>
