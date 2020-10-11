@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,6 +52,7 @@ public class AdaptadorRutina extends RecyclerView.Adapter<AdaptadorRutina.ViewHo
                 intent.putExtra(EjerciciosRutinaActivity.EXTRA_EJERCICIO,rutina.getNombre());
                 intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_ID,rutina.getId());
                 intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_IMAGE,rutina.getImageRutina());
+                intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_CANTIDAD,rutina.getCantidad());
                 view.getContext().startActivity(intent);
             }
         });

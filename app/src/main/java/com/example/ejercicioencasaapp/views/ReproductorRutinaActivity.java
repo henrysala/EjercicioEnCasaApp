@@ -21,13 +21,14 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
     public static final String EXTRA_RUTINA_NAME = "rutina_nombre";
     private static final String EXTRA_IMAGE = "image_rutina";
     public static final String EXTRA_RUTINA_ID = "id_rutina";
+    public static final String EXTRA_RUTINA_CANTIDAD = "cantidad_rutina";
     private String nombreRutina;
     private TextView tvNombreRutina, tvCurrentEjercicio, tvTimer, tvContador;
     private Button btnPlay;
-    private int gif_ejercicio,idRutina;
+    private int gif_ejercicio,idRutina, cantidadRutina;
     private GifImageView gvEjercicio;
-    private int seconds = 30;
-    public int count = 1;
+    private int seconds = 10;
+    public int count = 0;
     private boolean running, wasRunning;
     private ArrayList<Ejercicio> dataset;
 
@@ -47,8 +48,11 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
         gvEjercicio = (GifImageView)findViewById(R.id.gvEjercicio);
         gvEjercicio.setBackgroundResource(gif_ejercicio);
 
+        cantidadRutina = intent.getIntExtra(EXTRA_RUTINA_CANTIDAD,0);
         tvContador = (TextView)findViewById(R.id.tvReproductor);
-        tvContador.setText(String.valueOf(count));
+        tvContador.setText(String.valueOf(cantidadRutina));
+
+
 
 
         running = true;
@@ -59,16 +63,16 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
         EjercicioDAO ejercicioDAO = new EjercicioDAO(this);
         dataset = ejercicioDAO.consultarEjerciciosRutina(idRutina);
 
-        tvCurrentEjercicio = (TextView)findViewById(R.id.tvPalabraEjercicio);
+        tvCurrentEjercicio = (TextView)findViewById(R.id.tVCurrentEjercicio);
         //tvCurrentEjercicio.setText(dataset.get(0).getName());
         tvCurrentEjercicio.setText("PREPARATE");
 
 
         if(savedInstanceState != null){
             seconds = savedInstanceState.getInt("seconds");
-            //running = savedInstanceState.getBoolean("running");
+            running = savedInstanceState.getBoolean("running");
         }
-        runTimer();
+        runTimer(dataset, cantidadRutina);
     }
     //al clikear el boton conmuta el estado running y cambia el texto del boton
     public void onClickPause(View view){
@@ -107,7 +111,9 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
         savedInstanceState.putBoolean("running", running);
     }
 
-    private void runTimer(){
+    private void runTimer(ArrayList<Ejercicio> list, int cantidadEjercicios){
+        final ArrayList<Ejercicio> dataset = list;
+        final int veces = cantidadEjercicios;
         final TextView timeView = (TextView)findViewById(R.id.tvTimer);
         final Handler handler = new Handler();
         handler.post(new Runnable() {
@@ -117,30 +123,30 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
                 int sec = seconds%60;
                 String time = String.format("%02d ",sec);
                 timeView.setText(time);
-                if(running == true){
-                    seconds--;
-                }
-                if(seconds == 0){
-                    count++;
 
-                    //tvCurrentEjercicio.setText("descanso");
-                    //seconds = 30;
+                if(count < veces*2){
 
-                    if(count == 1){
-                        tvCurrentEjercicio.setText("Descanso");
-                        seconds = 15;
-                    }else{
-                        tvCurrentEjercicio.setText("ejercicio");
-                        //seconds = dataset.get(0).getDuracion();
-                        seconds = 30;
+                    if(running == true){
+                        seconds--;
                     }
+                    if(seconds == -1){
+                        count++;
 
-
-
-                    tvContador.setText(String.valueOf(count));
-                    seconds = 30;
-
+                        if(count%2 == 0){
+                            tvCurrentEjercicio.setText("Descanso");
+                            seconds = 10;
+                        }else{
+                            tvCurrentEjercicio.setText(dataset.get(count/2).getName());
+                            seconds = dataset.get(count/2).getDuracion();
+                            //seconds = 5;
+                        }
+                        tvContador.setText(String.valueOf(veces));
+                        //seconds = 30;
+                    }
+                }else{
+                    tvCurrentEjercicio.setText("finalizado");
                 }
+
                 handler.postDelayed(this,1000);
             }
         });

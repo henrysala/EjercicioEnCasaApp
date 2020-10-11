@@ -25,9 +25,10 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
     public static final String EXTRA_EJERCICIO = "rutinaNombre";
     public static final String EXTRA_RUTINA_ID = "id_rutina";
     public static final String EXTRA_RUTINA_IMAGE = "rutina_image";
+    public static final String EXTRA_RUTINA_CANTIDAD = "cantidad_rutina";
     private RecyclerView recyclerViewEjerciciosRutina;
     private String nombreRutina;
-    private int idRutina, image_rutina;
+    private int idRutina, image_rutina, cantidadRutina;
     private TextView tvNombre;
     private ImageView iVRutina;
     //private Button btnComenzarRutina;
@@ -47,6 +48,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         image_rutina = intent.getIntExtra(EXTRA_RUTINA_IMAGE, 0);
         iVRutina = (ImageView)findViewById(R.id.imageCard);
         iVRutina.setImageResource(image_rutina);
+        cantidadRutina = intent.getIntExtra(EXTRA_RUTINA_CANTIDAD,0);
 
 
 
@@ -70,8 +72,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
 
                 intent.putExtra(ReproductorRutinaActivity.EXTRA_RUTINA_NAME, nombreRutina);
                 intent.putExtra(ReproductorRutinaActivity.EXTRA_RUTINA_ID,idRutina);
-                //intent.putExtra("dataset", dataset);
-                //intent.putParcelableArrayListExtra("listaEjercicios", dataset);
+                intent.putExtra(ReproductorRutinaActivity.EXTRA_RUTINA_CANTIDAD,cantidadRutina);
 
                 view.getContext().startActivity(intent);
             }
