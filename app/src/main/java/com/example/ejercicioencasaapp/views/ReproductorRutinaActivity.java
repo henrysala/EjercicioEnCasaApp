@@ -129,7 +129,7 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
 
                         if(count%2 == 0){
                             tvCurrentEjercicio.setText("Descanso");
-                            gvEjercicio.setBackgroundResource(R.drawable.abdomen_toque_talon);
+                            gvEjercicio.setBackgroundResource(R.drawable.stop);
                             seconds = 10;
                         }else{
                             tvCurrentEjercicio.setText(dataset.get(count/2).getName());
@@ -141,7 +141,7 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
                         //seconds = 30;
                     }
                 }else{
-                    tvCurrentEjercicio.setText("finalizado");
+                    tvCurrentEjercicio.setText("Finalizado");
                 }
 
                 handler.postDelayed(this,1000);
