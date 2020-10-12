@@ -50,16 +50,7 @@ public class RutinasFragment extends Fragment {
         return view;
     }
 
-    /*
-    public void verEjerciciosRutina() {
-        //rutinaDAO = new RutinaDAO(getContext());
-        //rutinaDAO.consultarRutinas();
-        Context context = getContext();
-        Intent intent = new Intent(getActivity(),EjerciciosRutinaActivity.class);
-        //startActivity(intent);
-        context.startActivity(intent);
-    }
-    */
+
     @Override
     public void onStart() {
         super.onStart();
