@@ -62,6 +62,7 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
         tvCurrentEjercicio = (TextView)findViewById(R.id.tVCurrentEjercicio);
         //tvCurrentEjercicio.setText(dataset.get(0).getName());
         tvCurrentEjercicio.setText("PREPARATE");
+        gvEjercicio.setBackgroundResource(R.drawable.be_prepared);
 
 
         if(savedInstanceState != null){
