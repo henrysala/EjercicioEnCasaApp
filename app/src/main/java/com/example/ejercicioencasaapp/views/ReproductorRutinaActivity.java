@@ -38,7 +38,6 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-
         nombreRutina = intent.getStringExtra(EXTRA_RUTINA_NAME);
         idRutina = intent.getIntExtra(EXTRA_RUTINA_ID,0);
         tvNombreRutina = (TextView)findViewById(R.id.tvCurrentRutina);

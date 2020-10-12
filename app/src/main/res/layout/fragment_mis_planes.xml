@@ -23,6 +23,7 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/tab_bg"
         android:textColor="@color/colorSecondary"
-        android:text="@string/agregarPlan" />
+        android:text="@string/agregarPlan"
+        android:fontFamily="@font/futurastd_bold"/>
 
 </RelativeLayout>

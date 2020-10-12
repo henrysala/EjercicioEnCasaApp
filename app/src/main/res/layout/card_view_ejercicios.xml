@@ -47,6 +47,7 @@
                     android:text="TextView"
                     android:textColor="@color/colorText"
                     android:textSize="15sp"
+                    android:fontFamily="@font/futurastd_book"
                     android:layout_marginLeft="10dp"/>
 
                 <LinearLayout
@@ -74,7 +75,8 @@
                         android:layout_marginTop="5dp"
                         android:text="TextView"
                         android:textColor="@color/colorText"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:fontFamily="@font/futurastd_book"/>
 
                     <TextView
                         android:id="@+id/tvTiempo"
@@ -84,7 +86,8 @@
                         android:layout_marginTop="5dp"
                         android:text="Segundos"
                         android:textColor="@color/colorText"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:fontFamily="@font/futurastd_book"/>
 
                 </LinearLayout>
 

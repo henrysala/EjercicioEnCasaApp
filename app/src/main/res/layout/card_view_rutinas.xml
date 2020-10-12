@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorText"
                 android:textSize="20sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/futurastd_bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -67,7 +67,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:textColor="@color/colorText"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:fontFamily="@font/futurastd_book"/>
 
                 <TextView
                     android:id="@+id/tvPalabraEjercicios"
@@ -76,7 +77,8 @@
                     android:layout_marginStart="5dp"
                     android:text="Ejercicios"
                     android:textColor="@color/colorText"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:fontFamily="@font/futurastd_book"/>
 
             </LinearLayout>
 
@@ -101,6 +103,7 @@
                     android:layout_marginStart="5dp"
                     android:textColor="@color/colorText"
                     android:textSize="15sp"
+                    android:fontFamily="@font/futurastd_book"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
@@ -110,7 +113,8 @@
                     android:layout_marginStart="5dp"
                     android:text="Segundos"
                     android:textColor="@color/colorText"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:fontFamily="@font/futurastd_book"/>
 
             </LinearLayout>
         </LinearLayout>
