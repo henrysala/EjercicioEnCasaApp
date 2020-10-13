@@ -36,9 +36,9 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(UtilitiesDataBase.TablaRutinas.CREATE_TABLE_RUTINAS);
 
         //Se agregan las rutinas a la tabla
-        insertRutina(sqLiteDatabase,0,"Quemar grasa", 3, 18, R.drawable.quemar_grasa);
-        insertRutina(sqLiteDatabase,1,"Tonificar tren superior", 4, 24, R.drawable.tren_superior);
-        insertRutina(sqLiteDatabase,2,"Tonificar tren inferior", 3, 18, R.drawable.tren_inferior);
+        insertRutina(sqLiteDatabase,0,"Quemar grasa", 3, 140, R.drawable.quemar_grasa);
+        insertRutina(sqLiteDatabase,1,"Tonificar tren superior", 4, 160, R.drawable.tren_superior);
+        insertRutina(sqLiteDatabase,2,"Tonificar tren inferior", 3, 120, R.drawable.tren_inferior);
 
 
         sqLiteDatabase.execSQL(UtilitiesDataBase.TablaEjerciciosRutina.CREATE_TABLE_EJERCICIOS_RUTINA);
