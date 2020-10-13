@@ -23,7 +23,7 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
     public static final String EXTRA_RUTINA_CANTIDAD = "cantidad_rutina";
     private String nombreRutina;
     private TextView tvNombreRutina, tvCurrentEjercicio, tvTimer, tvContador;
-    private Button btnPlay;
+    private Button btnPlay,btnNext,btnPrev;
     private int idRutina, cantidadRutina;
     private GifImageView gvEjercicio;
     private int seconds = 10;
@@ -52,6 +52,8 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
 
         running = true;
         btnPlay = (Button)findViewById(R.id.btnPlay);
+        btnNext = (Button)findViewById(R.id.btnNext);
+        btnPrev = (Button)findViewById(R.id.btnPrev);
 
         //Estoy tratando de crear nuevamente la lista de ejercicios de la rutina
         ArrayList<Ejercicio> dataset;
@@ -78,6 +80,14 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
         }else{
             btnPlay.setText("play");
         }
+    }
+
+    public void onClickNext(View view){
+        seconds = 0;
+    }
+    public void onClickPrev(View view){
+        //seconds = 0;
+        count -= 2;
     }
 
     @Override
@@ -116,9 +126,13 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                int sec = seconds%60;
-                String time = String.format("%02d ",sec);
+                //int sec = seconds%60;
+                String time = String.format("%02d ",seconds);
                 timeView.setText(time);
+
+                //if(count>0){
+                //    btnPrev.setVisibility(View.VISIBLE);
+                //}
 
                 if(count < veces*2){
 
@@ -128,22 +142,39 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
                     if(seconds == -1){
                         count++;
 
-                        if(count%2 == 0){
+                        if(count == veces*2){
+                            seconds = 0;
+                            tvCurrentEjercicio.setText("Finalizado");
+                            btnNext.setVisibility(View.INVISIBLE);
+                        }
+
+
+                        else if(count%2 == 0){
                             tvCurrentEjercicio.setText("Descanso");
                             gvEjercicio.setBackgroundResource(R.drawable.stop);
                             seconds = 10;
-                        }else{
+                        }
+                        else {
                             tvCurrentEjercicio.setText(dataset.get(count/2).getName());
                             gvEjercicio.setBackgroundResource(dataset.get(count/2).getGifEjercicio());
                             seconds = dataset.get(count/2).getDuracion();
                             //seconds = 5;
                         }
+
+
                         tvContador.setText(String.valueOf(veces));
                         //seconds = 30;
                     }
-                }else{
-                    tvCurrentEjercicio.setText("Finalizado");
+
                 }
+                /*
+                else{
+                    seconds = 0;
+                    tvCurrentEjercicio.setText("Finalizado");
+                    btnNext.setVisibility(View.INVISIBLE);
+                }
+
+                 */
 
                 handler.postDelayed(this,1000);
             }
