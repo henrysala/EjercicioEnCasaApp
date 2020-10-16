@@ -1,5 +1,6 @@
 package com.example.ejercicioencasaapp.models;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ejercicioencasaapp.R;
+import com.example.ejercicioencasaapp.views.AgregarEjercicioActivity;
 import com.example.ejercicioencasaapp.views.Ejercicio;
 
 import java.util.ArrayList;
@@ -36,7 +38,16 @@ public class AdaptadorListaEjercicios extends RecyclerView.Adapter<AdaptadorList
         holder.nombreEjercicio.setText(ejercicio.getName());
         holder.duracionEjercicio.setText(String.valueOf(ejercicio.getDuracion()));
         holder.gif_ejercicio.setBackgroundResource(ejercicio.getGifEjercicio());
+        /*
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), AgregarEjercicioActivity.class);
+                view.getContext().startActivity(intent);
+            }
+        });
 
+         */
     }
 
     @Override

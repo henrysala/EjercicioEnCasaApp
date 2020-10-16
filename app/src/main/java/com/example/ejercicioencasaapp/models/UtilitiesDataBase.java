@@ -38,6 +38,17 @@ public final class UtilitiesDataBase {
                         " = ? )";
     }
 
+    public class TablaPlanes{
+        static final String TABLE_NAME="planes";
+        static final String ID_PLAN="id_plan";
+        static final String NAME="nombre";
+
+        static final String CREATE_TABLE_PLANES="CREATE TABLE "+TABLE_NAME+" ("+ID_PLAN+" INTEGER PRIMARY KEY AUTOINCREMENT, "
+                +NAME+" TEXT)";
+
+        static final String CONSULTAR_ALL_PLANES="SELECT * FROM "+TABLE_NAME;
+    }
+
     public class TablaEjerciciosRutina{
         static final String TABLE_NAME="ejerciciosRutina";
         static final String ID_EJERCICIO_RUTINA="idEjercicioRutina";
@@ -47,8 +58,22 @@ public final class UtilitiesDataBase {
 
         static final String CREATE_TABLE_EJERCICIOS_RUTINA="CREATE TABLE "+TABLE_NAME+" ("+ID_EJERCICIO_RUTINA+
                 " INTEGER PRIMARY KEY, "+ID_RUTINA+" INTEGER, "+ID_EJERCICIO+" INTEGER, "+
-                "FOREIGN KEY ("+ID_RUTINA+") REFERENCES "+ TablaRutinas.TABLE_NAME+" ("+TablaRutinas.ID_RUTINA+"), "+
+                "FOREIGN KEY ("+ID_RUTINA+") REFERENCES "+TablaRutinas.TABLE_NAME+" ("+TablaRutinas.ID_RUTINA+"), "+
                 "FOREIGN KEY ("+ID_EJERCICIO+") REFERENCES "+TablaEjercicios.TABLE_NAME+" ("+TablaEjercicios.ID_EJERCICIO+"))";
 
+    }
+
+    public class TablaEjerciciosPlan{
+        static final String TABLE_NAME="ejerciciosPlan";
+        //static final String ID_EJERCICIO_PLAN="idEjercicioPlan";
+        static final String ID_PLAN="id_plan";
+        static final String ID_EJERCICIO="id_ejercicio";
+
+        static final String CREATE_TABLE_EJERCICIOS_PLANES="CREATE TABLE "+TABLE_NAME+" ("+ID_PLAN+" INTEGER NOT NULL, "
+                +ID_EJERCICIO+" INTEGER NOT NULL, PRIMARY KEY ("+ID_PLAN+", "+ID_EJERCICIO+"), " +
+                "FOREIGN KEY ("+ID_PLAN+") REFERENCES "+TablaPlanes.TABLE_NAME+" ("+TablaPlanes.ID_PLAN+") " +
+                "ON UPDATE CASCADE,"+
+                "FOREIGN KEY ("+ID_EJERCICIO+") REFERENCES "+TablaEjercicios.TABLE_NAME+" ("+TablaEjercicios.ID_EJERCICIO+") " +
+                "ON UPDATE CASCADE)";
     }
 }

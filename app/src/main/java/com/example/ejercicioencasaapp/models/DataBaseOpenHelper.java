@@ -56,6 +56,13 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         insertEjerciciosRutina(sqLiteDatabase,28, 2,8);
         insertEjerciciosRutina(sqLiteDatabase,29, 2,9);
 
+        //insercion manual de un plan para poder verlo en el modulo, despues debo borrar
+        //esta insercion y hacerla automaticamente.
+        sqLiteDatabase.execSQL(UtilitiesDataBase.TablaPlanes.CREATE_TABLE_PLANES);
+        insertPlan(sqLiteDatabase, "plan tranqui");
+        insertPlan(sqLiteDatabase, "pesado");
+        insertPlan(sqLiteDatabase, "fin de semana");
+
     }
 
     private void insertEjercicio(SQLiteDatabase sqLiteDatabase, int idEjercicio, String nombre, int duracion, int gif_ejercicio){
@@ -77,6 +84,13 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         registro.put(UtilitiesDataBase.TablaRutinas.IMAGE_RUTINA,imageRutina);
 
         sqLiteDatabase.insert(UtilitiesDataBase.TablaRutinas.TABLE_NAME,null, registro);
+    }
+
+    private void insertPlan(SQLiteDatabase sqLiteDatabase, String nombre){
+        ContentValues registro = new ContentValues();
+        registro.put(UtilitiesDataBase.TablaPlanes.NAME, nombre);
+
+        sqLiteDatabase.insert(UtilitiesDataBase.TablaPlanes.TABLE_NAME, null, registro);
     }
 
     private void insertEjerciciosRutina(SQLiteDatabase sqLiteDatabase, int idEjercicioRutina, int idRutina, int idEjercicio){
