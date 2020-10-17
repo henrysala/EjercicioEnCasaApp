@@ -30,6 +30,18 @@ public class EjercicioDAO {
         return ejercicios;
     }
 
+    public ArrayList<Ejercicio> consultarEjerciciosPlan(int id) {
+        ArrayList<Ejercicio> ejercicios = new ArrayList<Ejercicio>();
+        String[] parametro = new String[1];
+        parametro[0] = String.valueOf(id);
+        Cursor cursor = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaPlanes.CONSULTAR_EJERCICIOS,parametro);
+        while (cursor.moveToNext()){
+            ejercicios.add(new Ejercicio(cursor.getInt(0),cursor.getString(1),cursor.getInt(2), cursor.getInt(3)));
+        }
+        sqLiteDatabase.close();
+        return ejercicios;
+    }
+
     public ArrayList<Ejercicio> consultarAllEjercicios() {
         ArrayList<Ejercicio> ejercicios = new ArrayList<Ejercicio>();
 

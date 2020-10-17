@@ -49,6 +49,7 @@ public class AdaptadorRutina extends RecyclerView.Adapter<AdaptadorRutina.ViewHo
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), EjerciciosRutinaActivity.class);
+                intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_OR_PLAN, 0);
                 intent.putExtra(EjerciciosRutinaActivity.EXTRA_EJERCICIO,rutina.getNombre());
                 intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_ID,rutina.getId());
                 intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_IMAGE,rutina.getImageRutina());

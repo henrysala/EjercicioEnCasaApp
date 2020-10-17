@@ -22,7 +22,7 @@ public class PlanDAO {
         ArrayList<Plan> planes = new ArrayList<Plan>();
         Cursor cursor = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaPlanes.CONSULTAR_ALL_PLANES,null);
         while (cursor.moveToNext()){
-            planes.add(new Plan(cursor.getInt(0),cursor.getString(1)));
+            planes.add(new Plan(cursor.getInt(0), cursor.getString(1), cursor.getInt(2)));
         }
         sqLiteDatabase.close();
         return planes;

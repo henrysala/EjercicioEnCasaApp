@@ -1,12 +1,13 @@
 package com.example.ejercicioencasaapp.views;
 
 public class Plan {
-    private int id;
+    private int id, cantidad;
     private String nombre;
 
-    public Plan(int id, String nombre){
+    public Plan(int id, String nombre, int cantidad){
         this.id = id;
         this.nombre = nombre;
+        this.cantidad = cantidad;
     }
 
     public Plan(String nombre){
@@ -15,6 +16,14 @@ public class Plan {
 
     public int getId() {
         return id;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     public void setId(int id) {

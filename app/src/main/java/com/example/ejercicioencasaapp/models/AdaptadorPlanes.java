@@ -44,10 +44,11 @@ public class AdaptadorPlanes extends RecyclerView.Adapter<AdaptadorPlanes.ViewHo
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), EjerciciosRutinaActivity.class);
+                intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_OR_PLAN, 1);
                 intent.putExtra(EjerciciosRutinaActivity.EXTRA_EJERCICIO,plan.getNombre());
                 intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_ID,plan.getId());
                 //intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_IMAGE,rutina.getImageRutina());
-                //intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_CANTIDAD,rutina.getCantidad());
+                intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_CANTIDAD,plan.getCantidad());
                 view.getContext().startActivity(intent);
             }
         });

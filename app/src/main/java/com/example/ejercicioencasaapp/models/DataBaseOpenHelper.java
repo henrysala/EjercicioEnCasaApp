@@ -64,8 +64,8 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         insertPlan(sqLiteDatabase, "fin de semana");
         //insercion de ejercicios en los planes para probar que se reproducen
         sqLiteDatabase.execSQL(UtilitiesDataBase.TablaEjerciciosPlan.CREATE_TABLE_EJERCICIOS_PLANES);
-        insertEjerciciosPlan(sqLiteDatabase, 0,0);
-        insertEjerciciosPlan(sqLiteDatabase, 0,3);
+        insertEjerciciosPlan(sqLiteDatabase, 3,0);
+        insertEjerciciosPlan(sqLiteDatabase, 3,3);
         insertEjerciciosPlan(sqLiteDatabase, 1,7);
         insertEjerciciosPlan(sqLiteDatabase, 2,1);
         insertEjerciciosPlan(sqLiteDatabase, 2,3);
@@ -109,6 +109,8 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
     private void insertPlan(SQLiteDatabase sqLiteDatabase, String nombre){
         ContentValues registro = new ContentValues();
         registro.put(UtilitiesDataBase.TablaPlanes.NAME, nombre);
+        registro.put(UtilitiesDataBase.TablaPlanes.CANTIDAD, UtilitiesDataBase.TablaPlanes.CONSULTAR_CANTIDAD);
+
 
         sqLiteDatabase.insert(UtilitiesDataBase.TablaPlanes.TABLE_NAME, null, registro);
     }

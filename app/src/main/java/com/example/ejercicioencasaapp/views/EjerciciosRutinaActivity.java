@@ -22,13 +22,14 @@ import java.util.ArrayList;
 import pl.droidsonroids.gif.GifImageView;
 
 public class EjerciciosRutinaActivity extends AppCompatActivity {
+    public static final String EXTRA_RUTINA_OR_PLAN = "rutinaOplan";
     public static final String EXTRA_EJERCICIO = "rutinaNombre";
     public static final String EXTRA_RUTINA_ID = "id_rutina";
     public static final String EXTRA_RUTINA_IMAGE = "rutina_image";
     public static final String EXTRA_RUTINA_CANTIDAD = "cantidad_rutina";
     private RecyclerView recyclerViewEjerciciosRutina;
     private String nombreRutina;
-    private int idRutina, image_rutina, cantidadRutina;
+    private int idRutina, image_rutina, cantidadRutina, rutinaOplan;
     private TextView tvNombre;
     private ImageView iVRutina;
     //private Button btnComenzarRutina;
@@ -41,6 +42,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        rutinaOplan = intent.getIntExtra(EXTRA_RUTINA_OR_PLAN, 0);
         nombreRutina = intent.getStringExtra(EXTRA_EJERCICIO);
         idRutina = intent.getIntExtra(EXTRA_RUTINA_ID, 0);
         tvNombre = (TextView)findViewById(R.id.tvRutinaNombre);
@@ -60,7 +62,12 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerViewEjerciciosRutina.setLayoutManager(layoutManager);
         EjercicioDAO ejercicioDAO = new EjercicioDAO(this);
-        dataset = ejercicioDAO.consultarEjerciciosRutina(idRutina);
+        //dataset = ejercicioDAO.consultarEjerciciosRutina(idRutina);
+        if(rutinaOplan == 0){
+            dataset = ejercicioDAO.consultarEjerciciosRutina(idRutina);
+        }else{
+            dataset = ejercicioDAO.consultarEjerciciosPlan(idRutina);
+        }
         recyclerViewEjerciciosRutina.setAdapter(new AdaptadorRutinaLista(dataset));
 
         FloatingActionButton btnComenzarRutina = (FloatingActionButton)findViewById(R.id.btnComenzarRutina);
