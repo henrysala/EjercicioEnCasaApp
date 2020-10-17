@@ -1,5 +1,6 @@
 package com.example.ejercicioencasaapp.models;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ejercicioencasaapp.R;
 import com.example.ejercicioencasaapp.views.Ejercicio;
+import com.example.ejercicioencasaapp.views.EjerciciosRutinaActivity;
 import com.example.ejercicioencasaapp.views.MisPlanesFragment;
 import com.example.ejercicioencasaapp.views.Plan;
 import com.example.ejercicioencasaapp.views.Rutina;
@@ -41,7 +43,12 @@ public class AdaptadorPlanes extends RecyclerView.Adapter<AdaptadorPlanes.ViewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(view.getContext(), EjerciciosRutinaActivity.class);
+                intent.putExtra(EjerciciosRutinaActivity.EXTRA_EJERCICIO,plan.getNombre());
+                intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_ID,plan.getId());
+                //intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_IMAGE,rutina.getImageRutina());
+                //intent.putExtra(EjerciciosRutinaActivity.EXTRA_RUTINA_CANTIDAD,rutina.getCantidad());
+                view.getContext().startActivity(intent);
             }
         });
 
