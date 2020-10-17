@@ -18,13 +18,14 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class ReproductorRutinaActivity extends AppCompatActivity {
 
+    public static final String EXTRA_RUTINA_OR_PLAN = "rutina_or_plan";
     public static final String EXTRA_RUTINA_NAME = "rutina_nombre";
     public static final String EXTRA_RUTINA_ID = "id_rutina";
     public static final String EXTRA_RUTINA_CANTIDAD = "cantidad_rutina";
     private String nombreRutina;
     private TextView tvNombreRutina, tvCurrentEjercicio, tvTimer, tvContador;
     private Button btnPlay,btnNext,btnPrev;
-    private int idRutina, cantidadRutina;
+    private int idRutina, cantidadRutina, rutinaOrPlan;
     private GifImageView gvEjercicio;
     private int seconds = 10;
     public int count = 0;
@@ -38,8 +39,9 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        rutinaOrPlan = intent.getIntExtra(EXTRA_RUTINA_OR_PLAN,0);
         nombreRutina = intent.getStringExtra(EXTRA_RUTINA_NAME);
-        idRutina = intent.getIntExtra(EXTRA_RUTINA_ID,0);
+        idRutina = intent.getIntExtra(EXTRA_RUTINA_ID,1);
         tvNombreRutina = (TextView)findViewById(R.id.tvCurrentRutina);
         tvNombreRutina.setText(String.valueOf(nombreRutina));
 
@@ -58,7 +60,11 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
         //Estoy tratando de crear nuevamente la lista de ejercicios de la rutina
         ArrayList<Ejercicio> dataset;
         EjercicioDAO ejercicioDAO = new EjercicioDAO(this);
-        dataset = ejercicioDAO.consultarEjerciciosRutina(idRutina);
+        if (rutinaOrPlan == 0) {
+            dataset = ejercicioDAO.consultarEjerciciosRutina(idRutina);
+        }else{
+            dataset = ejercicioDAO.consultarEjerciciosPlan(idRutina);
+        }
 
         tvCurrentEjercicio = (TextView)findViewById(R.id.tVCurrentEjercicio);
         //tvCurrentEjercicio.setText(dataset.get(0).getName());

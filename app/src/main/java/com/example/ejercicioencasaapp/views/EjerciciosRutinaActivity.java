@@ -22,14 +22,14 @@ import java.util.ArrayList;
 import pl.droidsonroids.gif.GifImageView;
 
 public class EjerciciosRutinaActivity extends AppCompatActivity {
-    public static final String EXTRA_RUTINA_OR_PLAN = "rutinaOplan";
+    public static final String EXTRA_RUTINA_OR_PLAN = "rutina_or_plan";
     public static final String EXTRA_EJERCICIO = "rutinaNombre";
     public static final String EXTRA_RUTINA_ID = "id_rutina";
     public static final String EXTRA_RUTINA_IMAGE = "rutina_image";
     public static final String EXTRA_RUTINA_CANTIDAD = "cantidad_rutina";
     private RecyclerView recyclerViewEjerciciosRutina;
     private String nombreRutina;
-    private int idRutina, image_rutina, cantidadRutina, rutinaOplan;
+    private int idRutina, image_rutina, cantidadRutina, rutinaOrPlan;
     private TextView tvNombre;
     private ImageView iVRutina;
     //private Button btnComenzarRutina;
@@ -42,7 +42,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        rutinaOplan = intent.getIntExtra(EXTRA_RUTINA_OR_PLAN, 0);
+        rutinaOrPlan = intent.getIntExtra(EXTRA_RUTINA_OR_PLAN, 0);
         nombreRutina = intent.getStringExtra(EXTRA_EJERCICIO);
         idRutina = intent.getIntExtra(EXTRA_RUTINA_ID, 0);
         tvNombre = (TextView)findViewById(R.id.tvRutinaNombre);
@@ -63,7 +63,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         recyclerViewEjerciciosRutina.setLayoutManager(layoutManager);
         EjercicioDAO ejercicioDAO = new EjercicioDAO(this);
         //dataset = ejercicioDAO.consultarEjerciciosRutina(idRutina);
-        if(rutinaOplan == 0){
+        if(rutinaOrPlan == 0){
             dataset = ejercicioDAO.consultarEjerciciosRutina(idRutina);
         }else{
             dataset = ejercicioDAO.consultarEjerciciosPlan(idRutina);
@@ -77,6 +77,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), ReproductorRutinaActivity.class);
 
+                intent.putExtra(ReproductorRutinaActivity.EXTRA_RUTINA_OR_PLAN, rutinaOrPlan);
                 intent.putExtra(ReproductorRutinaActivity.EXTRA_RUTINA_NAME, nombreRutina);
                 intent.putExtra(ReproductorRutinaActivity.EXTRA_RUTINA_ID,idRutina);
                 intent.putExtra(ReproductorRutinaActivity.EXTRA_RUTINA_CANTIDAD,cantidadRutina);
