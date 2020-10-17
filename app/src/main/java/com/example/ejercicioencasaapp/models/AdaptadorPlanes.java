@@ -38,6 +38,12 @@ public class AdaptadorPlanes extends RecyclerView.Adapter<AdaptadorPlanes.ViewHo
 
         final Plan plan = dataset.get(position);
         holder.nombre.setText(plan.getNombre());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
     }
 

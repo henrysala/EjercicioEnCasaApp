@@ -62,6 +62,16 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         insertPlan(sqLiteDatabase, "plan tranqui");
         insertPlan(sqLiteDatabase, "pesado");
         insertPlan(sqLiteDatabase, "fin de semana");
+        //insercion de ejercicios en los planes para probar que se reproducen
+        sqLiteDatabase.execSQL(UtilitiesDataBase.TablaEjerciciosPlan.CREATE_TABLE_EJERCICIOS_PLANES);
+        insertEjerciciosPlan(sqLiteDatabase, 0,0);
+        insertEjerciciosPlan(sqLiteDatabase, 0,3);
+        insertEjerciciosPlan(sqLiteDatabase, 1,7);
+        insertEjerciciosPlan(sqLiteDatabase, 2,1);
+        insertEjerciciosPlan(sqLiteDatabase, 2,3);
+        insertEjerciciosPlan(sqLiteDatabase, 2,8);
+
+
 
     }
 
@@ -86,13 +96,6 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.insert(UtilitiesDataBase.TablaRutinas.TABLE_NAME,null, registro);
     }
 
-    private void insertPlan(SQLiteDatabase sqLiteDatabase, String nombre){
-        ContentValues registro = new ContentValues();
-        registro.put(UtilitiesDataBase.TablaPlanes.NAME, nombre);
-
-        sqLiteDatabase.insert(UtilitiesDataBase.TablaPlanes.TABLE_NAME, null, registro);
-    }
-
     private void insertEjerciciosRutina(SQLiteDatabase sqLiteDatabase, int idEjercicioRutina, int idRutina, int idEjercicio){
         ContentValues registro = new ContentValues();
         registro.put(UtilitiesDataBase.TablaEjerciciosRutina.ID_EJERCICIO_RUTINA,idEjercicioRutina);
@@ -102,6 +105,22 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.insert(UtilitiesDataBase.TablaEjerciciosRutina.TABLE_NAME, null, registro);
 
     }
+
+    private void insertPlan(SQLiteDatabase sqLiteDatabase, String nombre){
+        ContentValues registro = new ContentValues();
+        registro.put(UtilitiesDataBase.TablaPlanes.NAME, nombre);
+
+        sqLiteDatabase.insert(UtilitiesDataBase.TablaPlanes.TABLE_NAME, null, registro);
+    }
+
+    private void insertEjerciciosPlan(SQLiteDatabase sqLiteDatabase, int idPlan, int idEjercicio){
+        ContentValues registro = new ContentValues();
+        registro.put(UtilitiesDataBase.TablaEjerciciosPlan.ID_PLAN, idPlan);
+        registro.put(UtilitiesDataBase.TablaEjerciciosPlan.ID_EJERCICIO, idEjercicio);
+
+        sqLiteDatabase.insert(UtilitiesDataBase.TablaEjerciciosPlan.TABLE_NAME, null, registro);
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+UtilitiesDataBase.TablaRutinas.TABLE_NAME);
