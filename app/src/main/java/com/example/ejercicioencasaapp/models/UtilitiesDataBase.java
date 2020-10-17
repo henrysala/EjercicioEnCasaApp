@@ -49,15 +49,12 @@ public final class UtilitiesDataBase {
 
         static final String CONSULTAR_ALL_PLANES="SELECT * FROM "+TABLE_NAME;
 
-        static final String CONSULTAR_CANTIDAD="SELECT COUNT("+TablaEjerciciosPlan.ID_EJERCICIO+") "
-                +"FROM "+TablaEjerciciosPlan.TABLE_NAME
-                +" WHERE "+TablaEjerciciosPlan.ID_PLAN+" = "+ID_PLAN;
-
         static final String CONSULTAR_EJERCICIOS=
                 "SELECT * FROM "+TablaEjercicios.TABLE_NAME+
                         " WHERE "+TablaEjercicios.ID_EJERCICIO+" IN ( SELECT "+TablaEjerciciosPlan.ID_EJERCICIO+
                         " FROM "+TablaEjerciciosPlan.TABLE_NAME+" WHERE "+TablaEjerciciosPlan.ID_PLAN+
                         " = ? )";
+
     }
 
     public class TablaEjerciciosRutina{
@@ -87,6 +84,8 @@ public final class UtilitiesDataBase {
                 "FOREIGN KEY ("+ID_EJERCICIO+") REFERENCES "+TablaEjercicios.TABLE_NAME+" ("+TablaEjercicios.ID_EJERCICIO+") " +
                 "ON UPDATE CASCADE)";
 
-
+        static final String CONSULTAR_CANTIDAD="SELECT COUNT( * ) "
+                +"FROM "+TABLE_NAME
+                +" WHERE "+ID_PLAN+" = "+2;
     }
 }

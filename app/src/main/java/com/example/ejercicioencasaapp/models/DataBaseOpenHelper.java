@@ -2,6 +2,7 @@ package com.example.ejercicioencasaapp.models;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.SparseIntArray;
@@ -58,11 +59,7 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
 
         //insercion manual de un plan para poder verlo en el modulo, despues debo borrar
         //esta insercion y hacerla automaticamente.
-        sqLiteDatabase.execSQL(UtilitiesDataBase.TablaPlanes.CREATE_TABLE_PLANES);
-        insertPlan(sqLiteDatabase, "plan tranqui");
-        insertPlan(sqLiteDatabase, "pesado");
-        insertPlan(sqLiteDatabase, "fin de semana");
-        //insercion de ejercicios en los planes para probar que se reproducen
+
         sqLiteDatabase.execSQL(UtilitiesDataBase.TablaEjerciciosPlan.CREATE_TABLE_EJERCICIOS_PLANES);
         insertEjerciciosPlan(sqLiteDatabase, 3,0);
         insertEjerciciosPlan(sqLiteDatabase, 3,3);
@@ -71,7 +68,16 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         insertEjerciciosPlan(sqLiteDatabase, 2,3);
         insertEjerciciosPlan(sqLiteDatabase, 2,8);
 
+        //Cursor cantidad = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaEjerciciosPlan.CONSULTAR_CANTIDAD, null);
+        //int can = cantidad.getInt(-1);
 
+        sqLiteDatabase.execSQL(UtilitiesDataBase.TablaPlanes.CREATE_TABLE_PLANES);
+        insertPlan(sqLiteDatabase, "plan tranqui", 1);
+        insertPlan(sqLiteDatabase, "pesado", 3);
+        insertPlan(sqLiteDatabase, "fin de semana", 2);
+        //insercion de ejercicios en los planes para probar que se reproducen
+
+        //sqLiteDatabase.execSQL(UtilitiesDataBase.TablaEjerciciosPlan.CONSULTAR_CANTIDAD);
 
     }
 
@@ -106,13 +112,14 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    private void insertPlan(SQLiteDatabase sqLiteDatabase, String nombre){
+    private void insertPlan(SQLiteDatabase sqLiteDatabase, String nombre, int cantidad){
         ContentValues registro = new ContentValues();
         registro.put(UtilitiesDataBase.TablaPlanes.NAME, nombre);
-        registro.put(UtilitiesDataBase.TablaPlanes.CANTIDAD, UtilitiesDataBase.TablaPlanes.CONSULTAR_CANTIDAD);
-
+        //registro.put(UtilitiesDataBase.TablaPlanes.CANTIDAD, UtilitiesDataBase.TablaEjerciciosPlan.CONSULTAR_CANTIDAD);
+        registro.put(UtilitiesDataBase.TablaPlanes.CANTIDAD, cantidad);
 
         sqLiteDatabase.insert(UtilitiesDataBase.TablaPlanes.TABLE_NAME, null, registro);
+
     }
 
     private void insertEjerciciosPlan(SQLiteDatabase sqLiteDatabase, int idPlan, int idEjercicio){
@@ -121,11 +128,23 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         registro.put(UtilitiesDataBase.TablaEjerciciosPlan.ID_EJERCICIO, idEjercicio);
 
         sqLiteDatabase.insert(UtilitiesDataBase.TablaEjerciciosPlan.TABLE_NAME, null, registro);
+
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+UtilitiesDataBase.TablaRutinas.TABLE_NAME);
         onCreate(sqLiteDatabase);
+        /*
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+UtilitiesDataBase.TablaPlanes.TABLE_NAME);
+        onCreate(sqLiteDatabase);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+UtilitiesDataBase.TablaEjercicios.TABLE_NAME);
+        onCreate(sqLiteDatabase);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+UtilitiesDataBase.TablaEjerciciosRutina.TABLE_NAME);
+        onCreate(sqLiteDatabase);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+UtilitiesDataBase.TablaEjerciciosPlan.TABLE_NAME);
+        onCreate(sqLiteDatabase);
+         */
     }
 }

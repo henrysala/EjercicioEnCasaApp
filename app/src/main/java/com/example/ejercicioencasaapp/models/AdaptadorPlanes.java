@@ -40,6 +40,7 @@ public class AdaptadorPlanes extends RecyclerView.Adapter<AdaptadorPlanes.ViewHo
 
         final Plan plan = dataset.get(position);
         holder.nombre.setText(plan.getNombre());
+        holder.cantidad.setText(String.valueOf(plan.getCantidad()));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,12 +62,13 @@ public class AdaptadorPlanes extends RecyclerView.Adapter<AdaptadorPlanes.ViewHo
     }
 
     public class ViewHolderPlan extends RecyclerView.ViewHolder {
-        private TextView nombre;
+        private TextView nombre, cantidad;
 
         public ViewHolderPlan(@NonNull View itemView, final MisPlanesFragment misPlanesFragment) {
             super(itemView);
 
             nombre = (TextView)itemView.findViewById(R.id.tvNombrePlan);
+            cantidad = (TextView)itemView.findViewById(R.id.tvCantidadEjPlan);
         }
     }
 }

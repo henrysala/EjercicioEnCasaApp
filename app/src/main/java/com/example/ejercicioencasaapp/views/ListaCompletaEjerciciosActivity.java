@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import com.example.ejercicioencasaapp.R;
 import com.example.ejercicioencasaapp.models.AdaptadorListaEjercicios;
@@ -15,13 +16,14 @@ import java.util.ArrayList;
 
 public class ListaCompletaEjerciciosActivity extends AppCompatActivity {
     private RecyclerView recyclerViewEjercicios;
+    private Button crearPlan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_completa_ejercicios);
 
-
+        crearPlan = (Button)findViewById(R.id.btnCrearPlan);
         recyclerViewEjercicios = (RecyclerView)findViewById(R.id.rvAllEjercicios);
 
         final ArrayList<Ejercicio> dataset;
