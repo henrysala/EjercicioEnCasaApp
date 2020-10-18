@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.example.ejercicioencasaapp.R;
 import com.example.ejercicioencasaapp.views.ListaCompletaEjerciciosActivity;
+import com.example.ejercicioencasaapp.views.MisPlanesFragment;
 import com.example.ejercicioencasaapp.views.Plan;
 
 public class NombreDialog extends AppCompatDialogFragment {
@@ -53,7 +55,10 @@ public class NombreDialog extends AppCompatDialogFragment {
                         }else {
                             Toast.makeText(getContext(), "Fallo en la conexión",Toast.LENGTH_SHORT).show();
                         }
-                        getActivity().finish();
+                        //getActivity().finish();
+                        Intent intent = new Intent(getContext(),ListaCompletaEjerciciosActivity.class);
+                        getContext().startActivity(intent);
+
                     }
                 });
 

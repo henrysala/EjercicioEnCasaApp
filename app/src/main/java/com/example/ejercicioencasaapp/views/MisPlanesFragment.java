@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 
 import com.example.ejercicioencasaapp.R;
 import com.example.ejercicioencasaapp.models.AdaptadorPlanes;
+import com.example.ejercicioencasaapp.models.NombreDialog;
 import com.example.ejercicioencasaapp.models.PlanDAO;
 
 import java.util.ArrayList;
@@ -65,10 +66,25 @@ public class MisPlanesFragment extends Fragment {
         btnAgregarPlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),ListaCompletaEjerciciosActivity.class);
-                view.getContext().startActivity(intent);
+                //Intent intent = new Intent(view.getContext(),ListaCompletaEjerciciosActivity.class);
+                //view.getContext().startActivity(intent);
+                openDialog();
+
             }
         });
 
     }
+
+    private void openDialog() {
+        NombreDialog nombreDialog = new NombreDialog();
+        nombreDialog.show(getFragmentManager(), "name dialog");
+    }
+
+    /*
+    @Override
+    public void applyText(String nombre) {
+
+    }
+
+     */
 }

@@ -13,6 +13,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,30 +27,17 @@ import com.example.ejercicioencasaapp.models.PlanDAO;
 
 import java.util.ArrayList;
 
-public class ListaCompletaEjerciciosActivity extends AppCompatActivity implements NombreDialog.NombreDialogListener {
+public class ListaCompletaEjerciciosActivity extends AppCompatActivity {
     private RecyclerView recyclerViewEjercicios;
-    private Button crearPlan;
-    private TextView tvNombre;
+
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_lista_completa_ejercicios);
 
-
-        tvNombre  = (TextView)findViewById(R.id.tvEditable);
-
-        crearPlan = (Button)findViewById(R.id.btnCrearPlan);
-        crearPlan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
-                openDialog();
-            }
-
-        });
 
 
         recyclerViewEjercicios = (RecyclerView)findViewById(R.id.rvAllEjercicios);
@@ -62,17 +50,9 @@ public class ListaCompletaEjerciciosActivity extends AppCompatActivity implement
         dataset = ejercicioDAO.consultarAllEjercicios();
         recyclerViewEjercicios.setAdapter(new AdaptadorListaEjercicios(dataset));
 
+
     }
 
-    private void openDialog() {
-        NombreDialog nombreDialog = new NombreDialog();
-        nombreDialog.show(getSupportFragmentManager(),"nombre dialog");
-    }
-
-    @Override
-    public void applyText(String nombre) {
-        tvNombre.setText(nombre);
-    }
 
 
     //private void guardarPlan() {

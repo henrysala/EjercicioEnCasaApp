@@ -9,10 +9,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.example.ejercicioencasaapp.R;
+import com.example.ejercicioencasaapp.models.NombreDialog;
 import com.example.ejercicioencasaapp.models.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NombreDialog.NombreDialogListener {
     private TabLayout myTabs;
     private View myIndicator;
     private ViewPager myViewPager;
@@ -79,5 +80,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void applyText(String nombre) {
+
     }
 }

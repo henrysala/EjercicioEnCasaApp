@@ -38,16 +38,18 @@ public class AdaptadorListaEjercicios extends RecyclerView.Adapter<AdaptadorList
         holder.nombreEjercicio.setText(ejercicio.getName());
         holder.duracionEjercicio.setText(String.valueOf(ejercicio.getDuracion()));
         holder.gif_ejercicio.setBackgroundResource(ejercicio.getGifEjercicio());
-        /*
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), AgregarEjercicioActivity.class);
+                intent.putExtra(AgregarEjercicioActivity.EXTRA_ID_EJERCICIO,ejercicio.getId());
+                intent.putExtra(AgregarEjercicioActivity.EXTRA_NOMBRE_EJERCICIO,ejercicio.getName());
                 view.getContext().startActivity(intent);
             }
         });
 
-         */
+
     }
 
     @Override

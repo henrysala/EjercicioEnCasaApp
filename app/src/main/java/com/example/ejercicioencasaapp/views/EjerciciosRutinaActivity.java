@@ -32,7 +32,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
     private int idRutina, image_rutina, cantidadRutina, rutinaOrPlan;
     private TextView tvNombre;
     private ImageView iVRutina;
-    //private Button btnComenzarRutina;
+    private FloatingActionButton btnAgregarEjercicio;
 
 
     @Override
@@ -56,6 +56,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
 
         //hasta aqui funciona
         recyclerViewEjerciciosRutina = (RecyclerView)findViewById(R.id.rvEjerciciosRutina);
+        btnAgregarEjercicio = (FloatingActionButton) findViewById(R.id.btnAgregarEjercicioPlan);
 
         final ArrayList<Ejercicio> dataset;
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -63,10 +64,14 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         recyclerViewEjerciciosRutina.setLayoutManager(layoutManager);
         EjercicioDAO ejercicioDAO = new EjercicioDAO(this);
         //dataset = ejercicioDAO.consultarEjerciciosRutina(idRutina);
+
+        //dependiendo de si se abre una rutina o un plan se llama un metodo diferente y se muestra el boton agregar ejercicio
         if(rutinaOrPlan == 0){
             dataset = ejercicioDAO.consultarEjerciciosRutina(idRutina);
+
         }else{
             dataset = ejercicioDAO.consultarEjerciciosPlan(idRutina);
+            btnAgregarEjercicio.setVisibility(View.VISIBLE);
         }
         recyclerViewEjerciciosRutina.setAdapter(new AdaptadorRutinaLista(dataset));
 
