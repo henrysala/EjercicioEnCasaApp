@@ -72,6 +72,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
             dataset = ejercicioDAO.consultarEjerciciosPlan(idRutina);
             btnAgregarEjercicio.setVisibility(View.VISIBLE);
         }
+        //al pulsar este boton se abre la lista de todos los ejercicios y se obtiene el id del plan
         btnAgregarEjercicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

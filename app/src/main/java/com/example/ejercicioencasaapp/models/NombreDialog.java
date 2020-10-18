@@ -43,20 +43,23 @@ public class NombreDialog extends AppCompatDialogFragment {
                 .setPositiveButton("guardar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        //se define el nombre del nuevo plan
                         String nombre = editTextNombre.getText().toString();
                         listener.applyText(nombre);
-
+                        //se crea el nuevo plan
                         Plan plan = new Plan(nombre, 2);
                         PlanDAO planDAO = new PlanDAO(getContext());
-                        long id = planDAO.insertarPlan(plan);
+                        long idPlan = planDAO.insertarPlan(plan);
+                        //convierto el id a int
+                        int id = (int) idPlan;
                         if(id >-1){
                             Toast.makeText(getContext(), "Id = "+id,Toast.LENGTH_SHORT).show();
                         }else {
                             Toast.makeText(getContext(), "Fallo en la conexión",Toast.LENGTH_SHORT).show();
                         }
-                        //getActivity().finish();
+                        //Se inicia el activity con la lista de ejrcicios para agregar y se pasa el id del nuevo plan
                         Intent intent = new Intent(getContext(),ListaCompletaEjerciciosActivity.class);
+                        intent.putExtra(ListaCompletaEjerciciosActivity.EXTRA_ID_PLAN,id);
                         getContext().startActivity(intent);
 
                     }

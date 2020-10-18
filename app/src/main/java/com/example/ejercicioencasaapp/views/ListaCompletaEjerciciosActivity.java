@@ -35,18 +35,18 @@ public class ListaCompletaEjerciciosActivity extends AppCompatActivity {
     private int idPlan;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_completa_ejercicios);
         final Intent intent = getIntent();
 
+        //se obtiene el id del plan que va a agregar ejercicios
         idPlan = intent.getIntExtra(EXTRA_ID_PLAN, 0);
         tvIdPlan = (TextView)findViewById(R.id.tvIdPlan);
         tvIdPlan.setText(String.valueOf(idPlan));
 
+        //se muestra la lista con todos los ejercicios
         recyclerViewEjercicios = (RecyclerView)findViewById(R.id.rvAllEjercicios);
 
         final ArrayList<Ejercicio> dataset;
@@ -57,22 +57,6 @@ public class ListaCompletaEjerciciosActivity extends AppCompatActivity {
         dataset = ejercicioDAO.consultarAllEjercicios();
         recyclerViewEjercicios.setAdapter(new AdaptadorListaEjercicios(dataset));
 
-
     }
-
-
-
-    //private void guardarPlan() {
-        //String nombre = editText.getText().toString();
-
-        //Plan plan = new Plan(nombre, 2);
-        //PlanDAO planDAO = new PlanDAO(getBaseContext());
-        //long id = planDAO.insertarPlan(plan);
-        //if(id >-1){
-        //    Toast.makeText(getBaseContext(), "Id = "+id,Toast.LENGTH_SHORT).show();
-        //}else {
-        //    Toast.makeText(getBaseContext(), "Fallo en la conexión",Toast.LENGTH_SHORT).show();
-        //}
-    //}
 
 }
