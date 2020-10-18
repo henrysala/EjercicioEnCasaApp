@@ -4,15 +4,14 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ejercicioencasaapp.R;
+import com.example.ejercicioencasaapp.views.DescripcionEjercicioActivity;
 import com.example.ejercicioencasaapp.views.Ejercicio;
-import com.example.ejercicioencasaapp.views.ReproductorRutinaActivity;
 
 import java.util.ArrayList;
 
@@ -38,6 +37,15 @@ public class AdaptadorRutinaLista extends RecyclerView.Adapter<AdaptadorRutinaLi
         holder.nombreEjercicio.setText(ejercicio.getName());
         holder.duracionEjercicio.setText(String.valueOf(ejercicio.getDuracion()));
         holder.gif_ejercicio.setBackgroundResource(ejercicio.getGifEjercicio());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), DescripcionEjercicioActivity.class);
+                intent.putExtra(DescripcionEjercicioActivity.EXTRA_ID_EJERCICIO,ejercicio.getId());
+                intent.putExtra(DescripcionEjercicioActivity.EXTRA_NOMBRE_EJERCICIO,ejercicio.getName());
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.ejercicioencasaapp.R;
 
-public class AgregarEjercicioActivity extends AppCompatActivity {
+public class DescripcionEjercicioActivity extends AppCompatActivity {
     public static final String EXTRA_ID_EJERCICIO = "id_ejercicio";
     public static final String EXTRA_NOMBRE_EJERCICIO = "nombre_ejercicio";
     private int idEjercicio;
@@ -21,7 +21,7 @@ public class AgregarEjercicioActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agregar_ejercicio);
+        setContentView(R.layout.activity_descripcion_ejercicio);
 
         Intent intent = getIntent();
 

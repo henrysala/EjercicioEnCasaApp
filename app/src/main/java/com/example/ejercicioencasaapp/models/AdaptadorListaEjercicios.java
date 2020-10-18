@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ejercicioencasaapp.R;
-import com.example.ejercicioencasaapp.views.AgregarEjercicioActivity;
+import com.example.ejercicioencasaapp.views.DescripcionEjercicioActivity;
 import com.example.ejercicioencasaapp.views.Ejercicio;
 
 import java.util.ArrayList;
@@ -42,9 +42,9 @@ public class AdaptadorListaEjercicios extends RecyclerView.Adapter<AdaptadorList
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), AgregarEjercicioActivity.class);
-                intent.putExtra(AgregarEjercicioActivity.EXTRA_ID_EJERCICIO,ejercicio.getId());
-                intent.putExtra(AgregarEjercicioActivity.EXTRA_NOMBRE_EJERCICIO,ejercicio.getName());
+                Intent intent = new Intent(view.getContext(), DescripcionEjercicioActivity.class);
+                intent.putExtra(DescripcionEjercicioActivity.EXTRA_ID_EJERCICIO,ejercicio.getId());
+                intent.putExtra(DescripcionEjercicioActivity.EXTRA_NOMBRE_EJERCICIO,ejercicio.getName());
                 view.getContext().startActivity(intent);
             }
         });
