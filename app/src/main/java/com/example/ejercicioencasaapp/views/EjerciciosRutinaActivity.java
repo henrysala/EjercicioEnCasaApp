@@ -80,6 +80,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
                 Intent intent1 = new Intent(view.getContext(), ListaCompletaEjerciciosActivity.class);
                 intent1.putExtra(ListaCompletaEjerciciosActivity.EXTRA_ID_PLAN,idRutina);
                 view.getContext().startActivity(intent1);
+
             }
         });
         AdaptadorRutinaLista adaptadorRutinaLista  = new AdaptadorRutinaLista(dataset);
@@ -107,5 +108,15 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Intent intent = getIntent();
+
+        //refrescar la lista de ejercicio para ver los ejercicios nuevos agregados
+        finish();
+        startActivity(intent);
     }
 }

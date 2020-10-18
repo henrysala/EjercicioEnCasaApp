@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ import java.util.ArrayList;
 
 public class ListaCompletaEjerciciosActivity extends AppCompatActivity {
     public static final String EXTRA_ID_PLAN = "id_plan";
+    public static Context context;
     private RecyclerView recyclerViewEjercicios;
     private TextView tvIdPlan;
     private int idPlan;
@@ -40,6 +42,9 @@ public class ListaCompletaEjerciciosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_completa_ejercicios);
         final Intent intent = getIntent();
+
+        //guardo el contex de esta activity para cerrarlo al agregar un ejercicio a un plan
+        context = this;
 
         //se obtiene el id del plan que va a agregar ejercicios
         idPlan = intent.getIntExtra(EXTRA_ID_PLAN, 0);
@@ -61,8 +66,6 @@ public class ListaCompletaEjerciciosActivity extends AppCompatActivity {
 
         //se envia el id del plan al adaptador
         adaptadorListaEjercicios.enviarIdPlan(idPlan);
-
-
 
     }
 

@@ -52,6 +52,7 @@ public class AdaptadorListaEjercicios extends RecyclerView.Adapter<AdaptadorList
                 intent.putExtra(DescripcionEjercicioActivity.EXTRA_ID_EJERCICIO,ejercicio.getId());
                 intent.putExtra(DescripcionEjercicioActivity.EXTRA_NOMBRE_EJERCICIO,ejercicio.getName());
                 view.getContext().startActivity(intent);
+
             }
         });
 
@@ -77,7 +78,8 @@ public class AdaptadorListaEjercicios extends RecyclerView.Adapter<AdaptadorList
         }
     }
 
-    public void enviarIdPlan(int idRecivido){
-        idPlan = idRecivido;
+    //se recibe el id del plan desde la activity
+    public void enviarIdPlan(int idRecibido){
+        idPlan = idRecibido;
     }
 }

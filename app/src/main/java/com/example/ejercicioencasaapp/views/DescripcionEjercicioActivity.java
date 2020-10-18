@@ -2,6 +2,8 @@ package com.example.ejercicioencasaapp.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.ejercicioencasaapp.R;
+import com.example.ejercicioencasaapp.models.AdaptadorListaEjercicios;
+import com.example.ejercicioencasaapp.models.AdaptadorRutinaLista;
+import com.example.ejercicioencasaapp.models.EjercicioPlanDAO;
+
+import java.util.List;
 
 public class DescripcionEjercicioActivity extends AppCompatActivity {
     public static final String EXTRA_AGREGAR = "agregar_ejercico";
@@ -22,11 +29,11 @@ public class DescripcionEjercicioActivity extends AppCompatActivity {
     private Button btnAgregar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_descripcion_ejercicio);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
 
         agregando = intent.getBooleanExtra(EXTRA_AGREGAR, false);
         idEjercicio = intent.getIntExtra(EXTRA_ID_EJERCICIO,0);
@@ -45,7 +52,14 @@ public class DescripcionEjercicioActivity extends AppCompatActivity {
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                EjercicioPlan ejercicioPlan = new EjercicioPlan(idPlan,idEjercicio);
+                EjercicioPlanDAO ejercicioPlanDAO = new EjercicioPlanDAO(getBaseContext());
+                ejercicioPlanDAO.insertarEjercicioPlan(ejercicioPlan);
+
+                //Cierra el activity de la lista de ejercicios
+                ((Activity)ListaCompletaEjerciciosActivity.context).finish();
+                finish();
+
             }
         });
 

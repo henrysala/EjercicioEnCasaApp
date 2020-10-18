@@ -47,7 +47,7 @@ public class NombreDialog extends AppCompatDialogFragment {
                         String nombre = editTextNombre.getText().toString();
                         listener.applyText(nombre);
                         //se crea el nuevo plan
-                        Plan plan = new Plan(nombre, 2);
+                        Plan plan = new Plan(nombre, 0);
                         PlanDAO planDAO = new PlanDAO(getContext());
                         long idPlan = planDAO.insertarPlan(plan);
                         //convierto el id a int
@@ -61,7 +61,6 @@ public class NombreDialog extends AppCompatDialogFragment {
                         Intent intent = new Intent(getContext(),ListaCompletaEjerciciosActivity.class);
                         intent.putExtra(ListaCompletaEjerciciosActivity.EXTRA_ID_PLAN,id);
                         getContext().startActivity(intent);
-
                     }
                 });
 
