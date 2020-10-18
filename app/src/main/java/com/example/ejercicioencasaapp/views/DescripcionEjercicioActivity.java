@@ -11,10 +11,12 @@ import android.widget.TextView;
 import com.example.ejercicioencasaapp.R;
 
 public class DescripcionEjercicioActivity extends AppCompatActivity {
+    public static final String EXTRA_AGREGAR = "agregar_ejercico";
     public static final String EXTRA_ID_EJERCICIO = "id_ejercicio";
     public static final String EXTRA_NOMBRE_EJERCICIO = "nombre_ejercicio";
     private int idEjercicio;
     private String nombreEjercicio;
+    private boolean agregando;
     private TextView tvId, tvNombre;
     private Button btnAgregar;
 
@@ -25,6 +27,7 @@ public class DescripcionEjercicioActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        agregando = intent.getBooleanExtra(EXTRA_AGREGAR, false);
         idEjercicio = intent.getIntExtra(EXTRA_ID_EJERCICIO,0);
         nombreEjercicio = intent.getStringExtra(EXTRA_NOMBRE_EJERCICIO);
 
@@ -42,6 +45,8 @@ public class DescripcionEjercicioActivity extends AppCompatActivity {
             }
         });
 
-
+        if(agregando){
+            btnAgregar.setVisibility(View.VISIBLE);
+        }
     }
 }

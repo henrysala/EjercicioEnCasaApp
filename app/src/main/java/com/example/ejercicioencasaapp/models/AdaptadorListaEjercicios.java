@@ -39,10 +39,13 @@ public class AdaptadorListaEjercicios extends RecyclerView.Adapter<AdaptadorList
         holder.duracionEjercicio.setText(String.valueOf(ejercicio.getDuracion()));
         holder.gif_ejercicio.setBackgroundResource(ejercicio.getGifEjercicio());
 
+        //al pulsar sobre un ejercicio de la lista se abre el activit descripcion y se pasan el id el nombre
+        //y el valor true indica que esta agregando un ejercicio para habilitar el boton agregar
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), DescripcionEjercicioActivity.class);
+                intent.putExtra(DescripcionEjercicioActivity.EXTRA_AGREGAR,true);
                 intent.putExtra(DescripcionEjercicioActivity.EXTRA_ID_EJERCICIO,ejercicio.getId());
                 intent.putExtra(DescripcionEjercicioActivity.EXTRA_NOMBRE_EJERCICIO,ejercicio.getName());
                 view.getContext().startActivity(intent);

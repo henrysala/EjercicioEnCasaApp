@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -28,7 +29,10 @@ import com.example.ejercicioencasaapp.models.PlanDAO;
 import java.util.ArrayList;
 
 public class ListaCompletaEjerciciosActivity extends AppCompatActivity {
+    public static final String EXTRA_ID_PLAN = "id_plan";
     private RecyclerView recyclerViewEjercicios;
+    private TextView tvIdPlan;
+    private int idPlan;
 
 
 
@@ -37,8 +41,11 @@ public class ListaCompletaEjerciciosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_completa_ejercicios);
+        final Intent intent = getIntent();
 
-
+        idPlan = intent.getIntExtra(EXTRA_ID_PLAN, 0);
+        tvIdPlan = (TextView)findViewById(R.id.tvIdPlan);
+        tvIdPlan.setText(String.valueOf(idPlan));
 
         recyclerViewEjercicios = (RecyclerView)findViewById(R.id.rvAllEjercicios);
 

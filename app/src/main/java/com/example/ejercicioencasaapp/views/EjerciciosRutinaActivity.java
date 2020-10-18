@@ -40,8 +40,9 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ejercicios_rutina);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
 
+        //rutinaOplan recibe 0 si se abre una rutina o 1 se se abre un plan
         rutinaOrPlan = intent.getIntExtra(EXTRA_RUTINA_OR_PLAN, 0);
         nombreRutina = intent.getStringExtra(EXTRA_EJERCICIO);
         idRutina = intent.getIntExtra(EXTRA_RUTINA_ID, 0);
@@ -53,8 +54,6 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         cantidadRutina = intent.getIntExtra(EXTRA_RUTINA_CANTIDAD,0);
 
 
-
-        //hasta aqui funciona
         recyclerViewEjerciciosRutina = (RecyclerView)findViewById(R.id.rvEjerciciosRutina);
         btnAgregarEjercicio = (FloatingActionButton) findViewById(R.id.btnAgregarEjercicioPlan);
 
@@ -73,10 +72,21 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
             dataset = ejercicioDAO.consultarEjerciciosPlan(idRutina);
             btnAgregarEjercicio.setVisibility(View.VISIBLE);
         }
-        recyclerViewEjerciciosRutina.setAdapter(new AdaptadorRutinaLista(dataset));
+        btnAgregarEjercicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(view.getContext(), ListaCompletaEjerciciosActivity.class);
+                intent1.putExtra(ListaCompletaEjerciciosActivity.EXTRA_ID_PLAN,idRutina);
+                view.getContext().startActivity(intent1);
+            }
+        });
 
+        //recyclerView del activity_ejercicios_rutina, donde se muestran los ejercicios que pertenecen a esa rutina
+        recyclerViewEjerciciosRutina.setAdapter(new AdaptadorRutinaLista(dataset));
         FloatingActionButton btnComenzarRutina = (FloatingActionButton)findViewById(R.id.btnComenzarRutina);
 
+        //al pulsar el boton comenzarRutina se abre el activity reproductor y se pasan el nombre, id, y cantidad de ejercicios
+        //de la rutina, y si es una rutina o un plan
         btnComenzarRutina.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

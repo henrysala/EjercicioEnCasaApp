@@ -9,6 +9,13 @@
     android:background="@color/colorPrimary"
     tools:context=".views.EjerciciosRutinaActivity">
 
+    <TextView
+        android:id="@+id/tvIdPlan"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorText"
+        android:textColor="@color/colorPrimary"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
