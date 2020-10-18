@@ -39,6 +39,16 @@ public class MisPlanesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mis_planes, container, false);
+
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        View view = getView();
+        assert view != null;
+
         //return inflater.inflate(R.layout.fragment_mis_planes, container, false);
         recyclerViewPlanes = (RecyclerView)view.findViewById(R.id.rvListaPlanes);
 
@@ -59,6 +69,6 @@ public class MisPlanesFragment extends Fragment {
                 view.getContext().startActivity(intent);
             }
         });
-        return view;
+
     }
 }

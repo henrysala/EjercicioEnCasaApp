@@ -11,10 +11,10 @@
     <!-- TODO: Update blank fragment layout -->
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvListaPlanes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ff00ff"
-        android:id="@+id/rvListaPlanes"/>
+        android:layout_height="350dp"
+        android:background="#ff00ff" />
 
     <Button
         android:id="@+id/btnAgregarPlan"

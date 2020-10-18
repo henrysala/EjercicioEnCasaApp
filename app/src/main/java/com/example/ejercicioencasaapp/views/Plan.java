@@ -10,8 +10,9 @@ public class Plan {
         this.cantidad = cantidad;
     }
 
-    public Plan(String nombre){
+    public Plan(String nombre, int cantidad){
         this.nombre = nombre;
+        this.cantidad = cantidad;
     }
 
     public int getId() {
