@@ -72,7 +72,7 @@ public class AdaptadorRutinaLista extends RecyclerView.Adapter<AdaptadorRutinaLi
         }
 
     }
-
+    //se recive el id de plan desde el activity
     public void enviarIdPlan(int idRecivido){
         idPlan = idRecivido;
     }
