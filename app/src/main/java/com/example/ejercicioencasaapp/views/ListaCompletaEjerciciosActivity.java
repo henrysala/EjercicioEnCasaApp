@@ -43,6 +43,7 @@ public class ListaCompletaEjerciciosActivity extends AppCompatActivity {
 
         //se obtiene el id del plan que va a agregar ejercicios
         idPlan = intent.getIntExtra(EXTRA_ID_PLAN, 0);
+
         tvIdPlan = (TextView)findViewById(R.id.tvIdPlan);
         tvIdPlan.setText(String.valueOf(idPlan));
 
@@ -55,7 +56,13 @@ public class ListaCompletaEjerciciosActivity extends AppCompatActivity {
         recyclerViewEjercicios.setLayoutManager(layoutManager);
         EjercicioDAO ejercicioDAO = new EjercicioDAO(this);
         dataset = ejercicioDAO.consultarAllEjercicios();
-        recyclerViewEjercicios.setAdapter(new AdaptadorListaEjercicios(dataset));
+        AdaptadorListaEjercicios adaptadorListaEjercicios = new AdaptadorListaEjercicios(dataset);
+        recyclerViewEjercicios.setAdapter(adaptadorListaEjercicios);
+
+        //se envia el id del plan al adaptador
+        adaptadorListaEjercicios.enviarIdPlan(idPlan);
+
+
 
     }
 

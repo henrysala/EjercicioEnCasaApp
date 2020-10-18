@@ -19,6 +19,8 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class AdaptadorListaEjercicios extends RecyclerView.Adapter<AdaptadorListaEjercicios.ViewHolderCVListaEjercicios> {
     private ArrayList<Ejercicio> dataset;
+    private int idPlan;
+
 
     public AdaptadorListaEjercicios(ArrayList<Ejercicio> ejercicios){
         dataset = ejercicios;
@@ -46,6 +48,7 @@ public class AdaptadorListaEjercicios extends RecyclerView.Adapter<AdaptadorList
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), DescripcionEjercicioActivity.class);
                 intent.putExtra(DescripcionEjercicioActivity.EXTRA_AGREGAR,true);
+                intent.putExtra(DescripcionEjercicioActivity.EXTRA_ID_PLAN,idPlan);
                 intent.putExtra(DescripcionEjercicioActivity.EXTRA_ID_EJERCICIO,ejercicio.getId());
                 intent.putExtra(DescripcionEjercicioActivity.EXTRA_NOMBRE_EJERCICIO,ejercicio.getName());
                 view.getContext().startActivity(intent);
@@ -72,5 +75,9 @@ public class AdaptadorListaEjercicios extends RecyclerView.Adapter<AdaptadorList
             gif_ejercicio = (GifImageView)itemView.findViewById(R.id.gifImageView);
             duracionEjercicio = (TextView)itemView.findViewById(R.id.tvDuracionEjercicio);
         }
+    }
+
+    public void enviarIdPlan(int idRecivido){
+        idPlan = idRecivido;
     }
 }

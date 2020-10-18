@@ -19,6 +19,7 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class AdaptadorRutinaLista extends RecyclerView.Adapter<AdaptadorRutinaLista.ViewHolderCVRutinaLista> {
     private ArrayList<Ejercicio> dataset;
+    private int idPlan;
 
     public AdaptadorRutinaLista(ArrayList<Ejercicio> ejercicios){
         dataset = ejercicios;
@@ -41,6 +42,7 @@ public class AdaptadorRutinaLista extends RecyclerView.Adapter<AdaptadorRutinaLi
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), DescripcionEjercicioActivity.class);
+                intent.putExtra(DescripcionEjercicioActivity.EXTRA_ID_PLAN,idPlan);
                 intent.putExtra(DescripcionEjercicioActivity.EXTRA_ID_EJERCICIO,ejercicio.getId());
                 intent.putExtra(DescripcionEjercicioActivity.EXTRA_NOMBRE_EJERCICIO,ejercicio.getName());
                 view.getContext().startActivity(intent);
@@ -69,5 +71,9 @@ public class AdaptadorRutinaLista extends RecyclerView.Adapter<AdaptadorRutinaLi
             //btnComenzarRutina = (Button)view.findViewById(R.id.btnComenzarRutina);
         }
 
+    }
+
+    public void enviarIdPlan(int idRecivido){
+        idPlan = idRecivido;
     }
 }

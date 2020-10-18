@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.ejercicioencasaapp.R;
+import com.example.ejercicioencasaapp.models.AdaptadorListaEjercicios;
 import com.example.ejercicioencasaapp.models.AdaptadorRutinaLista;
 import com.example.ejercicioencasaapp.models.EjercicioDAO;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -81,9 +82,12 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
                 view.getContext().startActivity(intent1);
             }
         });
+        AdaptadorRutinaLista adaptadorRutinaLista  = new AdaptadorRutinaLista(dataset);
+        recyclerViewEjerciciosRutina.setAdapter(adaptadorRutinaLista);
+        //se pasa el id del plan al adaptador
+        adaptadorRutinaLista.enviarIdPlan(idRutina);
 
-        //recyclerView del activity_ejercicios_rutina, donde se muestran los ejercicios que pertenecen a esa rutina
-        recyclerViewEjerciciosRutina.setAdapter(new AdaptadorRutinaLista(dataset));
+
         FloatingActionButton btnComenzarRutina = (FloatingActionButton)findViewById(R.id.btnComenzarRutina);
 
         //al pulsar el boton comenzarRutina se abre el activity reproductor y se pasan el nombre, id, y cantidad de ejercicios
