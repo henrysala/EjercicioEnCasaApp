@@ -25,12 +25,12 @@ public class DescripcionEjercicioActivity extends AppCompatActivity {
     public static final String EXTRA_ID_PLAN = "id_plan";
     public static final String EXTRA_ID_EJERCICIO = "id_ejercicio";
     public static final String EXTRA_NOMBRE_EJERCICIO = "nombre_ejercicio";
-    private int idEjercicio, idPlan, idGif;
+    public static final String EXTRA_GIF = "gif";
+    private int idEjercicio, idPlan;
     private String nombreEjercicio;
     private boolean agregando;
     private TextView tvIdPlan, tvIdEjercicio, tvNombre;
     private Button btnAgregar;
-    private GifImageView gvEjercicio;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -49,13 +49,12 @@ public class DescripcionEjercicioActivity extends AppCompatActivity {
         tvIdEjercicio = (TextView)findViewById(R.id.tvIdEjercicioAgregar);
         tvNombre = (TextView)findViewById(R.id.tvNombreEjercicioAgregar);
 
-        gvEjercicio = (GifImageView)findViewById(R.id.gvEjercicio);
-
         tvIdPlan.setText(String.valueOf(idPlan));
         tvIdEjercicio.setText(String.valueOf(idEjercicio));
         tvNombre.setText(nombreEjercicio);
 
         btnAgregar = (Button)findViewById(R.id.btnAgregarEjercicio);
+
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

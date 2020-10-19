@@ -82,6 +82,9 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         }else{
             dataset = ejercicioDAO.consultarEjerciciosPlan(idRutina);
             btnAgregarEjercicio.setVisibility(View.VISIBLE);
+            iVRutina.setImageResource(R.drawable.fondo_card_plan);
+
+
         }
         //al pulsar este boton se abre la lista de todos los ejercicios y se obtiene el id del plan
         btnAgregarEjercicio.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +102,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         adaptadorRutinaLista.enviarIdPlan(idRutina);
 
 
-        FloatingActionButton btnComenzarRutina = (FloatingActionButton)findViewById(R.id.btnComenzarRutina);
+        Button btnComenzarRutina = (Button)findViewById(R.id.btnComenzarRutina);
 
         //al pulsar el boton comenzarRutina se abre el activity reproductor y se pasan el nombre, id, y cantidad de ejercicios
         //de la rutina, y si es una rutina o un plan

@@ -5,7 +5,8 @@
     <string name="ejercicios">Aqui aparece la lista de rutinas de ejercicios</string>
     <string name="mis_planes">Aqui aparecen los planes que he creado y un boton para crear planes</string>
     <string name="agregarPlan">Agregar plan</string>
-    <string name="agregarEjercicio">Agregar Ejercicio</string>
+    <string name="agregarEjercicio">+ Agregar Ejercicio</string>
     <string name="nombrePlan">Agrega un nombre a tu plan de ejercicios</string>
     <string name="etNombrePlan">Nuevo plan</string>
+    <string name="comienzoRutina">VAMOS</string>
 </resources>

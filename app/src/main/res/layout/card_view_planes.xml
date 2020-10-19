@@ -22,7 +22,7 @@
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/card_plan" />
+            app:srcCompat="@drawable/fondo_card_plan" />
 
         <TextView
             android:id="@+id/tvNombrePlan"
