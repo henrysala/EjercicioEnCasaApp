@@ -14,6 +14,7 @@ import com.example.ejercicioencasaapp.R;
 import com.example.ejercicioencasaapp.models.AdaptadorListaEjercicios;
 import com.example.ejercicioencasaapp.models.AdaptadorRutinaLista;
 import com.example.ejercicioencasaapp.models.EjercicioPlanDAO;
+import com.example.ejercicioencasaapp.models.PlanDAO;
 
 import java.util.List;
 
@@ -55,6 +56,9 @@ public class DescripcionEjercicioActivity extends AppCompatActivity {
                 EjercicioPlan ejercicioPlan = new EjercicioPlan(idPlan,idEjercicio);
                 EjercicioPlanDAO ejercicioPlanDAO = new EjercicioPlanDAO(getBaseContext());
                 ejercicioPlanDAO.insertarEjercicioPlan(ejercicioPlan);
+
+                PlanDAO planDAO = new PlanDAO(getBaseContext());
+                planDAO.actualizarCantidad(idPlan);
 
                 //Cierra el activity de la lista de ejercicios
                 ((Activity)ListaCompletaEjerciciosActivity.context).finish();

@@ -2,6 +2,7 @@ package com.example.ejercicioencasaapp.models;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -36,5 +37,23 @@ public class PlanDAO {
         }
         sqLiteDatabase.close();
         return planes;
+    }
+
+
+    public void actualizarCantidad(int idPlan){
+
+        String[] argumento = new String[1];
+        argumento[0] = String.valueOf(idPlan);
+        ContentValues registro = new ContentValues();
+
+        Cursor cursor = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaPlanes.OBTENER_CANTIDAD,argumento);
+        while (cursor.moveToNext()){
+            int cantidad = cursor.getInt(0);
+            registro.put(UtilitiesDataBase.TablaPlanes.CANTIDAD, cantidad+1);
+        }
+
+        sqLiteDatabase.update(UtilitiesDataBase.TablaPlanes.TABLE_NAME, registro,UtilitiesDataBase.TablaPlanes.ID_PLAN+" = "+idPlan,null);
+
+        sqLiteDatabase.close();
     }
 }

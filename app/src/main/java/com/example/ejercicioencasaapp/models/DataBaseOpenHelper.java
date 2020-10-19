@@ -60,26 +60,24 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         //insercion manual de un plan para poder verlo en el modulo, despues debo borrar
         //esta insercion y hacerla automaticamente.
 
-        sqLiteDatabase.execSQL(UtilitiesDataBase.TablaEjerciciosPlan.CREATE_TABLE_EJERCICIOS_PLANES);
-        insertEjerciciosPlan(sqLiteDatabase, 3,0);
-        insertEjerciciosPlan(sqLiteDatabase, 3,3);
-        insertEjerciciosPlan(sqLiteDatabase, 1,7);
-        insertEjerciciosPlan(sqLiteDatabase, 2,1);
-        insertEjerciciosPlan(sqLiteDatabase, 2,3);
-        insertEjerciciosPlan(sqLiteDatabase, 2,8);
 
-        //Cursor cantidad = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaEjerciciosPlan.CONSULTAR_CANTIDAD, null);
-        //int can = cantidad.getInt(-1);
+        sqLiteDatabase.execSQL(UtilitiesDataBase.TablaEjerciciosPlan.CREATE_TABLE_EJERCICIOS_PLANES);
+        //insertEjerciciosPlan(sqLiteDatabase, 3,0);
+        //insertEjerciciosPlan(sqLiteDatabase, 3,3);
+        //insertEjerciciosPlan(sqLiteDatabase, 1,7);
+        //insertEjerciciosPlan(sqLiteDatabase, 2,1);
+        //insertEjerciciosPlan(sqLiteDatabase, 2,3);
+        //insertEjerciciosPlan(sqLiteDatabase, 2,8);
 
         sqLiteDatabase.execSQL(UtilitiesDataBase.TablaPlanes.CREATE_TABLE_PLANES);
-        insertPlan(sqLiteDatabase, "plan tranqui", 1);
-        insertPlan(sqLiteDatabase, "pesado", 3);
-        insertPlan(sqLiteDatabase, "fin de semana", 2);
+        //insertPlan(sqLiteDatabase, "plan tranqui", 1);
+        //insertPlan(sqLiteDatabase, "pesado", 3);
+        //insertPlan(sqLiteDatabase, "fin de semana", 2);
         //insercion de ejercicios en los planes para probar que se reproducen
 
-        //sqLiteDatabase.execSQL(UtilitiesDataBase.TablaEjerciciosPlan.CONSULTAR_CANTIDAD);
-
     }
+
+
 
     private void insertEjercicio(SQLiteDatabase sqLiteDatabase, int idEjercicio, String nombre, int duracion, int gif_ejercicio){
         ContentValues registro = new ContentValues();

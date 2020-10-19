@@ -55,6 +55,10 @@ public final class UtilitiesDataBase {
                         " FROM "+TablaEjerciciosPlan.TABLE_NAME+" WHERE "+TablaEjerciciosPlan.ID_PLAN+
                         " = ? )";
 
+
+        static final String OBTENER_CANTIDAD =
+                "SELECT "+CANTIDAD+" FROM "+TABLE_NAME+" WHERE "+ID_PLAN+" = ?";
+
     }
 
     public class TablaEjerciciosRutina{
@@ -84,8 +88,5 @@ public final class UtilitiesDataBase {
                 "FOREIGN KEY ("+ID_EJERCICIO+") REFERENCES "+TablaEjercicios.TABLE_NAME+" ("+TablaEjercicios.ID_EJERCICIO+") " +
                 "ON UPDATE CASCADE)";
 
-        static final String CONSULTAR_CANTIDAD="SELECT COUNT( * ) "
-                +"FROM "+TABLE_NAME
-                +" WHERE "+ID_PLAN+" = "+2;
     }
 }
