@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import com.example.ejercicioencasaapp.R;
 import com.example.ejercicioencasaapp.models.EjercicioDAO;
@@ -24,7 +25,8 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
     public static final String EXTRA_RUTINA_CANTIDAD = "cantidad_rutina";
     private String nombreRutina;
     private TextView tvNombreRutina, tvCurrentEjercicio, tvTimer, tvContador;
-    private Button btnPlay,btnNext,btnPrev;
+    private Button btnPlay;
+    private ImageButton btnNext,btnPrev;
     private int idRutina, cantidadRutina, rutinaOrPlan;
     private GifImageView gvEjercicio;
     private int seconds = 10;
@@ -54,8 +56,8 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
 
         running = true;
         btnPlay = (Button)findViewById(R.id.btnPlay);
-        btnNext = (Button)findViewById(R.id.btnNext);
-        btnPrev = (Button)findViewById(R.id.btnPrev);
+        btnNext = (ImageButton)findViewById(R.id.btnNext);
+        btnPrev = (ImageButton)findViewById(R.id.btnPrev);
 
         //Estoy tratando de crear nuevamente la lista de ejercicios de la rutina
         ArrayList<Ejercicio> dataset;

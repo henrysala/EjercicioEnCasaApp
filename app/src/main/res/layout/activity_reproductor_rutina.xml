@@ -91,26 +91,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="TextView"
-        android:textColor="@color/colorText"
+        android:textColor="@color/colorPrimary"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/tvCurrentRutina"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnPrev"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/tab_bg"
         android:onClick="onClickPrev"
-        android:text="previous"
-        android:textColor="@color/colorText"
-        android:textSize="10sp"
         android:visibility="visible"
+        android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnPlay" />
+        app:layout_constraintEnd_toStartOf="@+id/btnPlay"
+        app:srcCompat="@drawable/icon_previous"/>
 
     <Button
         android:id="@+id/btnPlay"
@@ -127,21 +125,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnNext"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/tab_bg"
         android:onClick="onClickNext"
-        android:text="next"
-        android:textColor="@color/colorText"
-        android:textSize="10sp"
         android:visibility="visible"
+        android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
-        app:layout_constraintStart_toEndOf="@+id/btnPlay" />
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/btnPlay"
+        app:srcCompat="@drawable/icon_selection"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

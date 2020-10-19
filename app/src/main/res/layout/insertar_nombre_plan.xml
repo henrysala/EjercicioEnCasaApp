@@ -3,13 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/tvPonerNombrePlan"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:text="ponle un nombre a tu plan" />
+        android:layout_height="60dp"
+        android:text="@string/nombrePlan"/>
 
     <EditText
         android:id="@+id/etPonerNombrePlan"
@@ -18,5 +19,5 @@
         android:maxLength="20"
         android:ems="10"
         android:inputType="text"
-        android:hint="nuevo plan" />
+        android:hint="@string/etNombrePlan" />
 </LinearLayout>

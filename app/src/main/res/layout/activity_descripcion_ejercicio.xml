@@ -4,48 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
+    android:background="@color/colorPrimary"
     tools:context=".views.DescripcionEjercicioActivity">
 
-    <TextView
-        android:id="@+id/tvIdPlanAgregar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/tvNombreEjercicioAgregar"
-        app:layout_constraintHorizontal_bias="0.479"
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gIVEjercicio"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/abdomen_toque_talon" />
 
     <TextView
         android:id="@+id/tvNombreEjercicioAgregar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:layout_marginEnd="100dp"
-        android:text="TextView"
+        android:layout_marginTop="60dp"
+        android:text="tesx tndns"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gIVEjercicio" />
 
     <Button
         android:id="@+id/btnAgregarEjercicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="284dp"
-        android:layout_marginEnd="168dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/tab_bg"
+        android:padding="20dp"
         android:text="Agregar"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombreEjercicioAgregar" />
+
+    <TextView
+        android:id="@+id/tvIdPlanAgregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvIdEjercicioAgregar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/tvNombreEjercicioAgregar"
-        app:layout_constraintHorizontal_bias="0.545"
-        app:layout_constraintStart_toEndOf="@+id/tvIdPlanAgregar"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="150dp"
+        tools:ignore="MissingConstraints" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

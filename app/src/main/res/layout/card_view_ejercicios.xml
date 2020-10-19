@@ -24,15 +24,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
-            <CheckBox
-                android:id="@+id/cbEjercicioSeleccionado"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="5dp"
-                android:visibility="invisible"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark" />
-
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/gifImageView"
                 android:layout_width="80dp"
@@ -117,6 +108,17 @@
                 android:clickable="true"
                 android:focusable="true"
                 app:srcCompat="@drawable/icon_selection" />
+
+            <CheckBox
+                android:id="@+id/cbEjercicioSeleccionado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="73dp"
+                android:layout_marginBottom="38dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                android:visibility="invisible" />
 
         </RelativeLayout>
 

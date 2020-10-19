@@ -14,7 +14,7 @@
         android:id="@+id/rvListaPlanes"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:background="#ff00ff" />
+        android:background="@color/colorPrimary" />
 
     <Button
         android:id="@+id/btnAgregarPlan"

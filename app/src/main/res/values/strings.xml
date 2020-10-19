@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">EjercicioEnCasaApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -6,4 +6,6 @@
     <string name="mis_planes">Aqui aparecen los planes que he creado y un boton para crear planes</string>
     <string name="agregarPlan">Agregar plan</string>
     <string name="agregarEjercicio">Agregar Ejercicio</string>
+    <string name="nombrePlan">Agrega un nombre a tu plan de ejercicios</string>
+    <string name="etNombrePlan">Nuevo plan</string>
 </resources>
