@@ -16,6 +16,7 @@ import com.example.ejercicioencasaapp.R;
 import com.example.ejercicioencasaapp.models.AdaptadorListaEjercicios;
 import com.example.ejercicioencasaapp.models.AdaptadorRutinaLista;
 import com.example.ejercicioencasaapp.models.EjercicioDAO;
+import com.example.ejercicioencasaapp.models.PlanDAO;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -52,7 +53,16 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         image_rutina = intent.getIntExtra(EXTRA_RUTINA_IMAGE, 0);
         iVRutina = (ImageView)findViewById(R.id.imageCard);
         iVRutina.setImageResource(image_rutina);
-        cantidadRutina = intent.getIntExtra(EXTRA_RUTINA_CANTIDAD,0);
+
+        //este if es para que al agregar un ejercicio a un plan la cantidad de ejercicios este al entrar al reproductor
+        if(rutinaOrPlan==1){
+            PlanDAO planDAO = new PlanDAO(getBaseContext());
+            cantidadRutina = planDAO.consultarCantidad(idRutina);
+        }
+        else{
+            cantidadRutina = intent.getIntExtra(EXTRA_RUTINA_CANTIDAD,0);
+        }
+
 
 
         recyclerViewEjerciciosRutina = (RecyclerView)findViewById(R.id.rvEjerciciosRutina);

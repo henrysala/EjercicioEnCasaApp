@@ -39,6 +39,19 @@ public class PlanDAO {
         return planes;
     }
 
+    public int consultarCantidad(int idPlan){
+        String[] argumento = new String[1];
+        argumento[0] = String.valueOf(idPlan);
+
+        Cursor cursor = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaPlanes.OBTENER_CANTIDAD,argumento);
+        int cantidad= 0;
+        while (cursor.moveToNext()){
+            cantidad = cursor.getInt(0);
+        }
+        sqLiteDatabase.close();
+        return cantidad;
+    }
+
 
     public void actualizarCantidad(int idPlan){
 

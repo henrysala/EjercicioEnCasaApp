@@ -67,7 +67,7 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         //insertEjerciciosPlan(sqLiteDatabase, 1,7);
         //insertEjerciciosPlan(sqLiteDatabase, 2,1);
         //insertEjerciciosPlan(sqLiteDatabase, 2,3);
-        //insertEjerciciosPlan(sqLiteDatabase, 2,8);
+        //insertEjerciciosPlan(sqLiteDatabase, 2,8);git
 
         sqLiteDatabase.execSQL(UtilitiesDataBase.TablaPlanes.CREATE_TABLE_PLANES);
         //insertPlan(sqLiteDatabase, "plan tranqui", 1);
@@ -134,15 +134,6 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+UtilitiesDataBase.TablaRutinas.TABLE_NAME);
         onCreate(sqLiteDatabase);
-        /*
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+UtilitiesDataBase.TablaPlanes.TABLE_NAME);
-        onCreate(sqLiteDatabase);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+UtilitiesDataBase.TablaEjercicios.TABLE_NAME);
-        onCreate(sqLiteDatabase);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+UtilitiesDataBase.TablaEjerciciosRutina.TABLE_NAME);
-        onCreate(sqLiteDatabase);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+UtilitiesDataBase.TablaEjerciciosPlan.TABLE_NAME);
-        onCreate(sqLiteDatabase);
-         */
+
     }
 }
