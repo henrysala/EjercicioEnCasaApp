@@ -23,6 +23,7 @@ public class PlanDAO {
         ContentValues registro = new ContentValues();
         registro.put(UtilitiesDataBase.TablaPlanes.NAME,plan.getNombre());
         registro.put(UtilitiesDataBase.TablaPlanes.CANTIDAD,plan.getCantidad());
+        registro.put(UtilitiesDataBase.TablaPlanes.IMAGE_PLAN,plan.getImagePlan());
         long id = sqLiteDatabase.insert(UtilitiesDataBase.TablaPlanes.TABLE_NAME,UtilitiesDataBase.TablaPlanes.ID_PLAN,registro);
         sqLiteDatabase.close();
         return id;
@@ -33,7 +34,7 @@ public class PlanDAO {
         ArrayList<Plan> planes = new ArrayList<Plan>();
         Cursor cursor = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaPlanes.CONSULTAR_ALL_PLANES,null);
         while (cursor.moveToNext()){
-            planes.add(new Plan(cursor.getInt(0),cursor.getString(1), cursor.getInt(2)));
+            planes.add(new Plan(cursor.getInt(0),cursor.getString(1), cursor.getInt(2), cursor.getInt(3)));
         }
         sqLiteDatabase.close();
         return planes;

@@ -43,9 +43,10 @@ public final class UtilitiesDataBase {
         static final String ID_PLAN="id_plan";
         static final String NAME="nombre";
         static final String CANTIDAD="cantidad";
+        static final String IMAGE_PLAN="image_plan";
 
         static final String CREATE_TABLE_PLANES="CREATE TABLE "+TABLE_NAME+" ("+ID_PLAN+" INTEGER PRIMARY KEY AUTOINCREMENT, "
-                +NAME+" TEXT, "+CANTIDAD+" INTEGER)";
+                +NAME+" TEXT, "+CANTIDAD+" INTEGER, "+IMAGE_PLAN+" INTEGER)";
 
         static final String CONSULTAR_ALL_PLANES="SELECT * FROM "+TABLE_NAME;
 
