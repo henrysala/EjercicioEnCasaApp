@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -38,6 +39,9 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reproductor_rutina);
+
+
+
 
         Intent intent = getIntent();
 
@@ -130,6 +134,11 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
         final int veces = cantidadEjercicios;
         final TextView timeView = (TextView)findViewById(R.id.tvTimer);
         final Handler handler = new Handler();
+        final MediaPlayer mediaPlayer;
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.pitido);
+        // no need to call prepare(); create() does that for you
+
         handler.post(new Runnable() {
             @Override
             public void run() {
@@ -138,14 +147,17 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
                 String time = String.format("%02d ",seconds);
                 timeView.setText(time);
 
-                //if(count>0){
-                //    btnPrev.setVisibility(View.VISIBLE);
-                //}
+                if(count>0){
+                    btnPrev.setVisibility(View.VISIBLE);
+                }
 
                 if(count < veces*2){
 
                     if(running == true){
                         seconds--;
+                    }
+                    if(seconds == 3){
+                        mediaPlayer.start();
                     }
                     if(seconds == -1){
                         count++;
