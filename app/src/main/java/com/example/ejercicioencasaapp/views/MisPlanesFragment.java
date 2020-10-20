@@ -50,13 +50,13 @@ public class MisPlanesFragment extends Fragment {
         View view = getView();
         assert view != null;
 
-        //return inflater.inflate(R.layout.fragment_mis_planes, container, false);
+
         recyclerViewPlanes = (RecyclerView)view.findViewById(R.id.rvListaPlanes);
 
         //mostrar la lista de planes
         ArrayList<Plan> dataset = new ArrayList<Plan>();
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
-        //layoutManager.setOrientation(GridLayout);
+
         recyclerViewPlanes.setLayoutManager(layoutManager);
         PlanDAO planDAO = new PlanDAO(getContext());
         dataset = planDAO.consultarPlanes();
@@ -66,8 +66,7 @@ public class MisPlanesFragment extends Fragment {
         btnAgregarPlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(view.getContext(),ListaCompletaEjerciciosActivity.class);
-                //view.getContext().startActivity(intent);
+
                 openDialog();
 
             }

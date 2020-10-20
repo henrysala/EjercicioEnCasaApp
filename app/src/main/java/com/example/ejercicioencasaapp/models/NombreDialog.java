@@ -5,6 +5,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -26,6 +29,11 @@ import com.example.ejercicioencasaapp.views.ListaCompletaEjerciciosActivity;
 import com.example.ejercicioencasaapp.views.MisPlanesFragment;
 import com.example.ejercicioencasaapp.views.Plan;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+
 import static android.app.Activity.RESULT_OK;
 
 public class NombreDialog extends AppCompatDialogFragment {
@@ -34,6 +42,8 @@ public class NombreDialog extends AppCompatDialogFragment {
     private Button btnCambiarImagen;
     private ImageView portada;
     private Drawable drawable;
+    private Bitmap bitmap;
+    private int intPortada;
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -58,7 +68,8 @@ public class NombreDialog extends AppCompatDialogFragment {
                         String nombre = editTextNombre.getText().toString();
                         listener.applyText(nombre);
                         //se crea el nuevo plan
-                        
+                        drawable = portada.getDrawable();
+
 
                         Plan plan = new Plan(nombre, 0,R.drawable.card_plan);
                         PlanDAO planDAO = new PlanDAO(getContext());
@@ -79,6 +90,7 @@ public class NombreDialog extends AppCompatDialogFragment {
 
         editTextNombre = view.findViewById(R.id.etPonerNombrePlan);
         portada = view.findViewById(R.id.ivPortada);
+
         btnCambiarImagen = view.findViewById(R.id.btnCambiarImagen);
         btnCambiarImagen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +101,7 @@ public class NombreDialog extends AppCompatDialogFragment {
         return builder.create();
 
     }
-
+    //metodo para seleccionar una imagen del dispositivo
     private void cargarImagen() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/");
@@ -100,10 +112,21 @@ public class NombreDialog extends AppCompatDialogFragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode==RESULT_OK){
-            Uri path=data.getData();
-            portada.setImageURI(path);
+            Uri imagePath=data.getData();
+            //portada.setImageURI(imagePath);
+
+            try {
+                InputStream inputStream = getContext().getContentResolver().openInputStream(imagePath);
+                bitmap = BitmapFactory.decodeStream(inputStream);
+                portada.setImageBitmap(bitmap);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+
         }
     }
+
 
     @Override
     public void onAttach(@NonNull Context context) {

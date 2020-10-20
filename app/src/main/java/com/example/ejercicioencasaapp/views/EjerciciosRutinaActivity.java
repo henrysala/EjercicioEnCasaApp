@@ -82,9 +82,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         }else{
             dataset = ejercicioDAO.consultarEjerciciosPlan(idRutina);
             btnAgregarEjercicio.setVisibility(View.VISIBLE);
-            iVRutina.setImageResource(R.drawable.fondo_card_plan);
-
-
+            //iVRutina.setImageResource(R.drawable.fondo_card_plan);
         }
         //al pulsar este boton se abre la lista de todos los ejercicios y se obtiene el id del plan
         btnAgregarEjercicio.setOnClickListener(new View.OnClickListener() {

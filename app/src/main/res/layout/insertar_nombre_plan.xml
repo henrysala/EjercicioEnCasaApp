@@ -26,7 +26,7 @@
         android:id="@+id/ivPortada"
         android:layout_width="wrap_content"
         android:layout_height="230dp"
-        app:srcCompat="@drawable/fondo_card_plan" />
+        app:srcCompat="@drawable/card_plan" />
 
     <Button
         android:id="@+id/btnCambiarImagen"

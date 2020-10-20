@@ -39,7 +39,7 @@ public class AdaptadorRutina extends RecyclerView.Adapter<AdaptadorRutina.ViewHo
     @Override
     public void onBindViewHolder(@NonNull final ViewHolderRutina holder, final int position) {
         final Rutina rutina = dataSet.get(position);
-        //holder.id.setText(String.valueOf(rutina.getId()));
+
         holder.nombre.setText(rutina.getNombre());
         holder.cantidad.setText(String.valueOf(rutina.getCantidad()));
         holder.duracion.setText(String.valueOf(rutina.getDuracion()));
@@ -67,7 +67,7 @@ public class AdaptadorRutina extends RecyclerView.Adapter<AdaptadorRutina.ViewHo
     public static class ViewHolderRutina extends RecyclerView.ViewHolder{
         private ImageView back_img;
         private TextView id, nombre, cantidad, duracion;
-        //private Button abrir;
+
         public ViewHolderRutina(View view, final RutinasFragment rutinasFragment){
             super(view);
 
@@ -75,17 +75,6 @@ public class AdaptadorRutina extends RecyclerView.Adapter<AdaptadorRutina.ViewHo
             cantidad = (TextView)view.findViewById(R.id.tvCantidadEjercicios);
             duracion = (TextView)view.findViewById(R.id.tvDuracionRutina);
             back_img = (ImageView)view.findViewById(R.id.imageCard);
-
-            /*
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //Integer.parseInt(id.getText().toString())
-                    //rutinasFragment.verEjerciciosRutina();
-                }
-            });
-             */
-
 
         }
     }

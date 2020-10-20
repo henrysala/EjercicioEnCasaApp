@@ -74,7 +74,7 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
 
         tvCurrentEjercicio = (TextView)findViewById(R.id.tVCurrentEjercicio);
         //tvCurrentEjercicio.setText(dataset.get(0).getName());
-        tvCurrentEjercicio.setText("PREPARATE");
+        tvCurrentEjercicio.setText("");
         gvEjercicio.setBackgroundResource(R.drawable.be_prepared);
 
 
@@ -157,7 +157,7 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
                         seconds--;
                     }
                     if(seconds == 3){
-                        mediaPlayer.start();
+                        mediaPlayer.start(); //reproduce el sonido cuando quedan 3 segundos
                     }
                     if(seconds == -1){
                         count++;
@@ -165,12 +165,13 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
                         if(count == veces*2){
                             seconds = 0;
                             tvCurrentEjercicio.setText("Finalizado");
+                            gvEjercicio.setVisibility(View.INVISIBLE);
                             btnNext.setVisibility(View.INVISIBLE);
                         }
 
 
                         else if(count%2 == 0){
-                            tvCurrentEjercicio.setText("Descanso");
+                            tvCurrentEjercicio.setText("");
                             gvEjercicio.setBackgroundResource(R.drawable.stop);
                             seconds = 10;
                         }
