@@ -41,9 +41,7 @@ public class NombreDialog extends AppCompatDialogFragment {
     private NombreDialogListener listener;
     private Button btnCambiarImagen;
     private ImageView portada;
-    private Drawable drawable;
     private Bitmap bitmap;
-    private int intPortada;
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -68,7 +66,6 @@ public class NombreDialog extends AppCompatDialogFragment {
                         String nombre = editTextNombre.getText().toString();
                         listener.applyText(nombre);
                         //se crea el nuevo plan
-                        drawable = portada.getDrawable();
 
 
                         Plan plan = new Plan(nombre, 0,R.drawable.card_plan);
@@ -95,19 +92,21 @@ public class NombreDialog extends AppCompatDialogFragment {
         btnCambiarImagen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cargarImagen();
+                //cargarImagen();
             }
         });
         return builder.create();
 
     }
+    /*
     //metodo para seleccionar una imagen del dispositivo
     private void cargarImagen() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/");
         startActivityForResult(intent.createChooser(intent,"seleccione imgen desde:"),10);
     }
-
+     */
+/*
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -126,6 +125,8 @@ public class NombreDialog extends AppCompatDialogFragment {
 
         }
     }
+
+ */
 
 
     @Override

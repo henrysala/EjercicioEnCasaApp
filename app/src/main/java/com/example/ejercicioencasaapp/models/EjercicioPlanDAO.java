@@ -23,6 +23,7 @@ public class EjercicioPlanDAO {
 
         sqLiteDatabase.insert(UtilitiesDataBase.TablaEjerciciosPlan.TABLE_NAME,null, registro);
 
+        sqLiteDatabase.close();
     }
 
 }

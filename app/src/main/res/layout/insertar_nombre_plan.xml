@@ -25,12 +25,14 @@
     <ImageView
         android:id="@+id/ivPortada"
         android:layout_width="wrap_content"
-        android:layout_height="230dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
         app:srcCompat="@drawable/card_plan" />
 
     <Button
         android:id="@+id/btnCambiarImagen"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:visibility="invisible"
         android:text="Cambiar imagen" />
 </LinearLayout>
