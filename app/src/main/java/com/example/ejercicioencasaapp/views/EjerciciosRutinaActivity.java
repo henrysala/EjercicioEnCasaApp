@@ -63,8 +63,6 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
             cantidadRutina = intent.getIntExtra(EXTRA_RUTINA_CANTIDAD,0);
         }
 
-
-
         recyclerViewEjerciciosRutina = (RecyclerView)findViewById(R.id.rvEjerciciosRutina);
         btnAgregarEjercicio = (FloatingActionButton) findViewById(R.id.btnAgregarEjercicioPlan);
 
@@ -84,6 +82,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
             btnAgregarEjercicio.setVisibility(View.VISIBLE);
             //iVRutina.setImageResource(R.drawable.fondo_card_plan);
         }
+
         //al pulsar este boton se abre la lista de todos los ejercicios y se obtiene el id del plan
         btnAgregarEjercicio.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,8 +116,6 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
                 view.getContext().startActivity(intent);
             }
         });
-
-
     }
 
     @Override

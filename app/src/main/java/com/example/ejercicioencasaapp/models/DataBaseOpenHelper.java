@@ -22,16 +22,16 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         //Se crea la tabla de ejercicios
         sqLiteDatabase.execSQL(UtilitiesDataBase.TablaEjercicios.CREATE_TABLE_EJERCICIOS);
         //se agregan los ejercicios a la tabla
-        insertEjercicio(sqLiteDatabase, 0,"Abdomen con toque al talón", 60, R.drawable.abdomen_toque_talon);
-        insertEjercicio(sqLiteDatabase, 1,"Crunch abdominal", 30, R.drawable.crunch_abs);
-        insertEjercicio(sqLiteDatabase, 2,"Plancha", 30, R.drawable.plank);
-        insertEjercicio(sqLiteDatabase, 3,"Flexión de pecho con apoyo", 40, R.drawable.lagartija_con_apoyo);
-        insertEjercicio(sqLiteDatabase, 4,"Tijera de brazos", 30, R.drawable.tijeras_brazo);
-        insertEjercicio(sqLiteDatabase, 5,"Elevación lateral de brazos", 30, R.drawable.lateral_brazos);
-        insertEjercicio(sqLiteDatabase, 6,"Inclinación lateral", 30, R.drawable.lateral_brazos);
-        insertEjercicio(sqLiteDatabase, 7,"Sentadillas", 30, R.drawable.squat_color);
-        insertEjercicio(sqLiteDatabase, 8,"Titere", 30, R.drawable.titere);
-        insertEjercicio(sqLiteDatabase, 9,"Elevacion de pantorrilla", 40, R.drawable.calf);
+        insertEjercicio(sqLiteDatabase, 0,"Abdomen con toque al talón", 60, R.drawable.abdomen_toque_talon, "En este ejercicio se debe mantener la cabeza baja y apretar en todo momento el abdomen");
+        insertEjercicio(sqLiteDatabase, 1,"Crunch abdominal", 30, R.drawable.crunch_abs, "En este ejercicio lo importante es apretar el abdomente y juntar las rodillas");
+        insertEjercicio(sqLiteDatabase, 2,"Plancha", 30, R.drawable.plank, "Mantener la posición de la espalda siempre recta y la cabeza en una línea recta con el resto del cuerpo");
+        insertEjercicio(sqLiteDatabase, 3,"Flexión de pecho con apoyo", 40, R.drawable.lagartija_con_apoyo, "Los brazos deben ir al mismo ancho de los hombros, siempre con las espalda recta");
+        insertEjercicio(sqLiteDatabase, 4,"Tijera de brazos", 30, R.drawable.tijeras_brazo, "Espalda recta y los brazos elevados siempre rectos");
+        insertEjercicio(sqLiteDatabase, 5,"Elevación lateral de brazos", 30, R.drawable.lateral_brazos, "Espalda recta y los brazos siempre rectos");
+        insertEjercicio(sqLiteDatabase, 6,"Inclinación lateral", 30, R.drawable.lateral_brazos, "Espalda recta y los brazos siempre rectos");
+        insertEjercicio(sqLiteDatabase, 7,"Sentadillas", 30, R.drawable.squat_color, "Mantener espalda siempre recta, con los brazos hacia adelante para manetener la postura");
+        insertEjercicio(sqLiteDatabase, 8,"Titere", 30, R.drawable.titere, "Mantener siempre el ritmo y brazos siempre rectos");
+        insertEjercicio(sqLiteDatabase, 9,"Elevacion de pantorrilla", 40, R.drawable.calf, "Elevación de pantorrillas de manera lenta y siempre con las rodillas dobladas");
 
         //Se crea la tabla de rutinas
         sqLiteDatabase.execSQL(UtilitiesDataBase.TablaRutinas.CREATE_TABLE_RUTINAS);
@@ -77,14 +77,13 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
 
     }
 
-
-
-    private void insertEjercicio(SQLiteDatabase sqLiteDatabase, int idEjercicio, String nombre, int duracion, int gif_ejercicio){
+    private void insertEjercicio(SQLiteDatabase sqLiteDatabase, int idEjercicio, String nombre, int duracion, int gif_ejercicio, String descrip){
         ContentValues registro = new ContentValues();
         registro.put(UtilitiesDataBase.TablaEjercicios.ID_EJERCICIO,idEjercicio);
         registro.put(UtilitiesDataBase.TablaEjercicios.NAME,nombre);
         registro.put(UtilitiesDataBase.TablaEjercicios.DURATION,duracion);
         registro.put(UtilitiesDataBase.TablaEjercicios.GIF,gif_ejercicio);
+        registro.put(UtilitiesDataBase.TablaEjercicios.DESCRIP,descrip);
 
         sqLiteDatabase.insert(UtilitiesDataBase.TablaEjercicios.TABLE_NAME,null, registro);
     }

@@ -2,13 +2,14 @@ package com.example.ejercicioencasaapp.views;
 
 public class Ejercicio {
     private int id, duracion, gif_ejercicio;
-    private String nombre;
+    private String nombre, descrip;
 
-    public Ejercicio(int id, String nombre, int duracion, int gif_ejercicio) {
+    public Ejercicio(int id, String nombre, int duracion, int gif_ejercicio, String descrip) {
         this.id = id;
         this.duracion = duracion;
         this.nombre = nombre;
         this.gif_ejercicio = gif_ejercicio;
+        this.descrip = descrip;
     }
 
     public int getId() {
@@ -36,4 +37,7 @@ public class Ejercicio {
     }
 
     public int getGifEjercicio() { return gif_ejercicio; }
+
+    public String getDescrip() { return descrip;  }
+
 }

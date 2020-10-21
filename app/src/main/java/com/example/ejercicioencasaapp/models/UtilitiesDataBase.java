@@ -10,9 +10,10 @@ public final class UtilitiesDataBase {
         static final String NAME="nombre";
         static final String DURATION="duracion";
         static final String GIF="gif";
+        static final String DESCRIP="descrip";
 
         static final String CREATE_TABLE_EJERCICIOS="CREATE TABLE "+TABLE_NAME+" ("+ID_EJERCICIO+" INTEGER PRIMARY KEY, "
-                +NAME+" TEXT, "+DURATION+" INTEGER, " + GIF + " INTEGER)";
+                +NAME+" TEXT, "+DURATION+" INTEGER, " + GIF + " INTEGER, " + DESCRIP + " TEXT)";
 
         static final String CONSULTAR_ALL_EJERCICIOS="SELECT * FROM "+TABLE_NAME;
     }

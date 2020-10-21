@@ -25,11 +25,12 @@ public class DescripcionEjercicioActivity extends AppCompatActivity {
     public static final String EXTRA_ID_PLAN = "id_plan";
     public static final String EXTRA_ID_EJERCICIO = "id_ejercicio";
     public static final String EXTRA_NOMBRE_EJERCICIO = "nombre_ejercicio";
+    public static final String EXTRA_DESCRIP_EJERCICIO = "descrip_ejercicio";
     public static final String EXTRA_GIF = "gif";
     private int idEjercicio, idPlan;
-    private String nombreEjercicio;
+    private String nombreEjercicio, descrip_ejercicio;
     private boolean agregando;
-    private TextView tvIdPlan, tvIdEjercicio, tvNombre;
+    private TextView tvIdPlan, tvIdEjercicio, tvNombre, tvDescription;
     private Button btnAgregar;
 
     @Override
@@ -44,14 +45,17 @@ public class DescripcionEjercicioActivity extends AppCompatActivity {
         idPlan = intent.getIntExtra(EXTRA_ID_PLAN,0);
 
         nombreEjercicio = intent.getStringExtra(EXTRA_NOMBRE_EJERCICIO);
+        descrip_ejercicio = intent.getStringExtra(EXTRA_DESCRIP_EJERCICIO);
 
         tvIdPlan = (TextView)findViewById(R.id.tvIdPlanAgregar);
         tvIdEjercicio = (TextView)findViewById(R.id.tvIdEjercicioAgregar);
         tvNombre = (TextView)findViewById(R.id.tvNombreEjercicioAgregar);
+        tvDescription = (TextView)findViewById(R.id.tvDescription);
 
         tvIdPlan.setText(String.valueOf(idPlan));
         tvIdEjercicio.setText(String.valueOf(idEjercicio));
         tvNombre.setText(nombreEjercicio);
+        tvDescription.setText(descrip_ejercicio);
 
         btnAgregar = (Button)findViewById(R.id.btnAgregarEjercicio);
 

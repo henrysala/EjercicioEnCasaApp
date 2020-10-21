@@ -24,7 +24,7 @@ public class EjercicioDAO {
         parametro[0] = String.valueOf(id);
         Cursor cursor = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaRutinas.CONSULTAR_EJERCICIOS,parametro);
         while (cursor.moveToNext()){
-            ejercicios.add(new Ejercicio(cursor.getInt(0),cursor.getString(1),cursor.getInt(2), cursor.getInt(3)));
+            ejercicios.add(new Ejercicio(cursor.getInt(0),cursor.getString(1),cursor.getInt(2), cursor.getInt(3), cursor.getString(4)));
         }
         sqLiteDatabase.close();
         return ejercicios;
@@ -36,7 +36,7 @@ public class EjercicioDAO {
         parametro[0] = String.valueOf(id);
         Cursor cursor = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaPlanes.CONSULTAR_EJERCICIOS,parametro);
         while (cursor.moveToNext()){
-            ejercicios.add(new Ejercicio(cursor.getInt(0),cursor.getString(1),cursor.getInt(2), cursor.getInt(3)));
+            ejercicios.add(new Ejercicio(cursor.getInt(0),cursor.getString(1),cursor.getInt(2), cursor.getInt(3), cursor.getString(4)));
         }
         sqLiteDatabase.close();
         return ejercicios;
@@ -47,7 +47,7 @@ public class EjercicioDAO {
 
         Cursor cursor = sqLiteDatabase.rawQuery(UtilitiesDataBase.TablaEjercicios.CONSULTAR_ALL_EJERCICIOS,null);
         while (cursor.moveToNext()){
-            ejercicios.add(new Ejercicio(cursor.getInt(0),cursor.getString(1),cursor.getInt(2), cursor.getInt(3)));
+            ejercicios.add(new Ejercicio(cursor.getInt(0),cursor.getString(1),cursor.getInt(2), cursor.getInt(3), cursor.getString(4)));
         }
         sqLiteDatabase.close();
         return ejercicios;

@@ -39,6 +39,7 @@ public class AdaptadorListaEjercicios extends RecyclerView.Adapter<AdaptadorList
 
         holder.nombreEjercicio.setText(ejercicio.getName());
         holder.duracionEjercicio.setText(String.valueOf(ejercicio.getDuracion()));
+        ///holder.description.setText(ejercicio.getDescription());
         holder.gif_ejercicio.setBackgroundResource(ejercicio.getGifEjercicio());
 
         //al pulsar sobre un ejercicio de la lista se abre el activit descripcion y se pasan el id el nombre
@@ -52,11 +53,8 @@ public class AdaptadorListaEjercicios extends RecyclerView.Adapter<AdaptadorList
                 intent.putExtra(DescripcionEjercicioActivity.EXTRA_ID_EJERCICIO,ejercicio.getId());
                 intent.putExtra(DescripcionEjercicioActivity.EXTRA_NOMBRE_EJERCICIO,ejercicio.getName());
                 view.getContext().startActivity(intent);
-
             }
         });
-
-
     }
 
     @Override
@@ -65,7 +63,7 @@ public class AdaptadorListaEjercicios extends RecyclerView.Adapter<AdaptadorList
     }
 
     public class ViewHolderCVListaEjercicios extends RecyclerView.ViewHolder {
-        private TextView nombreEjercicio, duracionEjercicio;
+        private TextView nombreEjercicio, duracionEjercicio;  //description
         private GifImageView gif_ejercicio;
 
         public ViewHolderCVListaEjercicios(@NonNull View itemView) {

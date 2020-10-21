@@ -13,6 +13,8 @@ import com.example.ejercicioencasaapp.R;
 import com.example.ejercicioencasaapp.views.DescripcionEjercicioActivity;
 import com.example.ejercicioencasaapp.views.Ejercicio;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 import pl.droidsonroids.gif.GifImageView;
@@ -57,7 +59,7 @@ public class AdaptadorRutinaLista extends RecyclerView.Adapter<AdaptadorRutinaLi
 
     public static class ViewHolderCVRutinaLista extends RecyclerView.ViewHolder {
         //private ImageView ivEjercicio;
-        private TextView nombreEjercicio, duracionEjercicio;
+        private TextView nombreEjercicio, duracionEjercicio, description;
         private GifImageView gif_ejercicio;
         //private Button btnComenzarRutina;
 
@@ -67,7 +69,6 @@ public class AdaptadorRutinaLista extends RecyclerView.Adapter<AdaptadorRutinaLi
             nombreEjercicio = (TextView)view.findViewById(R.id.tvNombreEjercicio);
             duracionEjercicio = (TextView)view.findViewById(R.id.tvDuracionEjercicio);
             gif_ejercicio = (GifImageView)view.findViewById(R.id.gifImageView);
-            duracionEjercicio = (TextView)view.findViewById(R.id.tvDuracionEjercicio);
             //btnComenzarRutina = (Button)view.findViewById(R.id.btnComenzarRutina);
         }
 
