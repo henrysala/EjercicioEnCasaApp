@@ -26,11 +26,13 @@ public class DescripcionEjercicioActivity extends AppCompatActivity {
     public static final String EXTRA_ID_EJERCICIO = "id_ejercicio";
     public static final String EXTRA_NOMBRE_EJERCICIO = "nombre_ejercicio";
     public static final String EXTRA_DESCRIP_EJERCICIO = "descrip_ejercicio";
-    private int idEjercicio, idPlan;
+    public static final String EXTRA_GIF = "gif";
+    private int idEjercicio, idPlan, gif_ejercicio;
     private String nombreEjercicio, descrip_ejercicio;
     private boolean agregando;
     private TextView tvIdPlan, tvIdEjercicio, tvNombre, tvDescription;
     private Button btnAgregar;
+    private GifImageView gvEjercicio;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class DescripcionEjercicioActivity extends AppCompatActivity {
         agregando = intent.getBooleanExtra(EXTRA_AGREGAR, false);
         idEjercicio = intent.getIntExtra(EXTRA_ID_EJERCICIO,0);
         idPlan = intent.getIntExtra(EXTRA_ID_PLAN,0);
+        gif_ejercicio = intent.getIntExtra(EXTRA_GIF, 0);
 
         nombreEjercicio = intent.getStringExtra(EXTRA_NOMBRE_EJERCICIO);
         descrip_ejercicio = intent.getStringExtra(EXTRA_DESCRIP_EJERCICIO);
@@ -50,11 +53,13 @@ public class DescripcionEjercicioActivity extends AppCompatActivity {
         tvIdEjercicio = (TextView)findViewById(R.id.tvIdEjercicioAgregar);
         tvNombre = (TextView)findViewById(R.id.tvNombreEjercicioAgregar);
         tvDescription = (TextView)findViewById(R.id.tvDescription);
+        gvEjercicio = (GifImageView)findViewById(R.id.gvEjercicio);
 
         tvIdPlan.setText(String.valueOf(idPlan));
         tvIdEjercicio.setText(String.valueOf(idEjercicio));
         tvNombre.setText(nombreEjercicio);
         tvDescription.setText(descrip_ejercicio);
+        gvEjercicio.setBackgroundResource(gif_ejercicio);
 
         btnAgregar = (Button)findViewById(R.id.btnAgregarEjercicio);
 

@@ -52,6 +52,7 @@ public class AdaptadorListaEjercicios extends RecyclerView.Adapter<AdaptadorList
                 intent.putExtra(DescripcionEjercicioActivity.EXTRA_ID_EJERCICIO,ejercicio.getId());
                 intent.putExtra(DescripcionEjercicioActivity.EXTRA_NOMBRE_EJERCICIO,ejercicio.getName());
                 intent.putExtra(DescripcionEjercicioActivity.EXTRA_DESCRIP_EJERCICIO,ejercicio.getDescrip());
+                intent.putExtra(DescripcionEjercicioActivity.EXTRA_GIF,ejercicio.getGifEjercicio());
                 view.getContext().startActivity(intent);
             }
         });
