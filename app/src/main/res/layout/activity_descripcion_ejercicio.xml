@@ -8,40 +8,32 @@
     android:background="@color/colorPrimary"
     tools:context=".views.DescripcionEjercicioActivity">
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/gIVEjercicio"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/abdomen_toque_talon" />
-
     <TextView
         android:id="@+id/tvNombreEjercicioAgregar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="150dp"
+        android:fontFamily="@font/futurastd_bold"
         android:textAlignment="center"
         android:textColor="@color/colorText"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gIVEjercicio" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvDescription"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:text="TextView"
+        android:layout_marginTop="50dp"
         android:textColor="@color/colorText"
-        android:textSize="15sp"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:fontFamily="@font/futurastd_book"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNombreEjercicioAgregar" />
 
@@ -49,16 +41,16 @@
         android:id="@+id/btnAgregarEjercicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="50dp"
         android:background="@color/colorPrimary"
         android:padding="20dp"
         android:text="@string/agregarEjercicio"
         android:textColor="@color/colorText"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNombreEjercicioAgregar" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
     <TextView
         android:id="@+id/tvIdPlanAgregar"

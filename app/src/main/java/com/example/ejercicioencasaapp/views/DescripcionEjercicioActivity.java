@@ -26,7 +26,6 @@ public class DescripcionEjercicioActivity extends AppCompatActivity {
     public static final String EXTRA_ID_EJERCICIO = "id_ejercicio";
     public static final String EXTRA_NOMBRE_EJERCICIO = "nombre_ejercicio";
     public static final String EXTRA_DESCRIP_EJERCICIO = "descrip_ejercicio";
-    public static final String EXTRA_GIF = "gif";
     private int idEjercicio, idPlan;
     private String nombreEjercicio, descrip_ejercicio;
     private boolean agregando;

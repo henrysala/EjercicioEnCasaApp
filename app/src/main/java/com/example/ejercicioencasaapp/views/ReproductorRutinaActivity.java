@@ -40,9 +40,6 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reproductor_rutina);
 
-
-
-
         Intent intent = getIntent();
 
         rutinaOrPlan = intent.getIntExtra(EXTRA_RUTINA_OR_PLAN,0);
