@@ -108,7 +108,7 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.insert(UtilitiesDataBase.TablaEjerciciosRutina.TABLE_NAME, null, registro);
 
     }
-
+/*
     private void insertPlan(SQLiteDatabase sqLiteDatabase, String nombre, int cantidad){
         ContentValues registro = new ContentValues();
         registro.put(UtilitiesDataBase.TablaPlanes.NAME, nombre);
@@ -127,6 +127,8 @@ public class DataBaseOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.insert(UtilitiesDataBase.TablaEjerciciosPlan.TABLE_NAME, null, registro);
 
     }
+
+ */
 
 
     @Override

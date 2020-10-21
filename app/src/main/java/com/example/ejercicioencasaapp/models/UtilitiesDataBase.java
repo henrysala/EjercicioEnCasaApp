@@ -63,6 +63,7 @@ public final class UtilitiesDataBase {
 
     }
 
+    //tabla que agrupa ejercicios que pertenecen a una rutina
     public class TablaEjerciciosRutina{
         static final String TABLE_NAME="ejerciciosRutina";
         static final String ID_EJERCICIO_RUTINA="idEjercicioRutina";
@@ -77,6 +78,7 @@ public final class UtilitiesDataBase {
 
     }
 
+    //tabla que agrupa ejercicios que pertenecen a un plan
     public class TablaEjerciciosPlan{
         static final String TABLE_NAME="ejerciciosPlan";
         //static final String ID_EJERCICIO_PLAN="idEjercicioPlan";

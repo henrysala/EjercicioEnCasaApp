@@ -39,7 +39,6 @@ public class AdaptadorListaEjercicios extends RecyclerView.Adapter<AdaptadorList
 
         holder.nombreEjercicio.setText(ejercicio.getName());
         holder.duracionEjercicio.setText(String.valueOf(ejercicio.getDuracion()));
-        //holder.description.setText(ejercicio.getDescription());
         holder.gif_ejercicio.setBackgroundResource(ejercicio.getGifEjercicio());
 
         //al pulsar sobre un ejercicio de la lista se abre el activit descripcion y se pasan el id el nombre

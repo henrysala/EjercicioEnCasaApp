@@ -53,15 +53,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         image_rutina = intent.getIntExtra(EXTRA_RUTINA_IMAGE, 0);
         iVRutina = (ImageView)findViewById(R.id.imageCard);
         iVRutina.setImageResource(image_rutina);
-
-        //este if es para que al agregar un ejercicio a un plan la cantidad de ejercicios este al entrar al reproductor
-        if(rutinaOrPlan==1){
-            PlanDAO planDAO = new PlanDAO(getBaseContext());
-            cantidadRutina = planDAO.consultarCantidad(idRutina);
-        }
-        else{
-            cantidadRutina = intent.getIntExtra(EXTRA_RUTINA_CANTIDAD,0);
-        }
+        
 
         recyclerViewEjerciciosRutina = (RecyclerView)findViewById(R.id.rvEjerciciosRutina);
         btnAgregarEjercicio = (FloatingActionButton) findViewById(R.id.btnAgregarEjercicioPlan);
@@ -73,14 +65,18 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         EjercicioDAO ejercicioDAO = new EjercicioDAO(this);
         //dataset = ejercicioDAO.consultarEjerciciosRutina(idRutina);
 
+        //este if es para que al agregar un ejercicio a un plan la cantidad de ejercicios este al entrar al reproductor
         //dependiendo de si se abre una rutina o un plan se llama un metodo diferente y se muestra el boton agregar ejercicio
         if(rutinaOrPlan == 0){
             dataset = ejercicioDAO.consultarEjerciciosRutina(idRutina);
+            cantidadRutina = intent.getIntExtra(EXTRA_RUTINA_CANTIDAD,0);
 
         }else{
             dataset = ejercicioDAO.consultarEjerciciosPlan(idRutina);
             btnAgregarEjercicio.setVisibility(View.VISIBLE);
             //iVRutina.setImageResource(R.drawable.fondo_card_plan);
+            PlanDAO planDAO = new PlanDAO(getBaseContext());
+            cantidadRutina = planDAO.consultarCantidad(idRutina);
         }
 
         //al pulsar este boton se abre la lista de todos los ejercicios y se obtiene el id del plan
