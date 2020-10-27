@@ -53,7 +53,7 @@ public class EjerciciosRutinaActivity extends AppCompatActivity {
         image_rutina = intent.getIntExtra(EXTRA_RUTINA_IMAGE, 0);
         iVRutina = (ImageView)findViewById(R.id.imageCard);
         iVRutina.setImageResource(image_rutina);
-        
+
 
         recyclerViewEjerciciosRutina = (RecyclerView)findViewById(R.id.rvEjerciciosRutina);
         btnAgregarEjercicio = (FloatingActionButton) findViewById(R.id.btnAgregarEjercicioPlan);
