@@ -143,9 +143,10 @@ public class ReproductorRutinaActivity extends AppCompatActivity {
                 //int sec = seconds%60;
                 String time = String.format("%02d ",seconds);
                 timeView.setText(time);
+                btnPrev.setVisibility(View.INVISIBLE);
 
                 if(count>0){
-                    btnPrev.setVisibility(View.VISIBLE);
+                    //btnPrev.setVisibility(View.VISIBLE);
                 }
 
                 if(count < veces*2){
